@@ -1,0 +1,31 @@
+p#notice
+  = notice
+h1
+  | Garins
+table
+  thead
+    tr
+      th
+        | Name
+      th
+        | Money
+      th
+        | Budget
+      th[colspan="3"]
+  tbody
+    - @garins.each do |garin|
+      tr
+        td
+          = garin.name
+        td
+          = garin.money
+        td
+          = garin.budgets.pluck(:name)
+        td
+          = link_to 'Show', garin
+        td
+          = link_to 'Edit', edit_garin_path(garin)
+        td
+          = link_to 'Destroy', garin, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Garin', new_garin_path
