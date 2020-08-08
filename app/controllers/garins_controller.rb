@@ -10,7 +10,7 @@ class GarinsController < ApplicationController
   # GET /garins/1
   # GET /garins/1.json
   def show
-		@garin = current_user.garin if user_signed_in?
+		@garin = current_user.garin if user_signed_in? 
   end
 
   # GET /garins/new

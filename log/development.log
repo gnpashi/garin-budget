@@ -15230,3 +15230,2574 @@ puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
 puma (4.3.5) lib/puma/server.rb:472:in `process_client'
 puma (4.3.5) lib/puma/server.rb:328:in `block in run'
 puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-08-08 22:09:44 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.5ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:13:in `show'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 29.9ms | Allocations: 24248)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 96ms (Views: 38.8ms | ActiveRecord: 12.5ms | Allocations: 50207)
+
+
+Started GET "/garins" for ::1 at 2020-08-08 22:10:09 +0300
+Processing by GarinsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering garins/index.html.slim within layouts/application
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins"[0m
+  ↳ app/views/garins/index.html.slim:16
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "budgets"."name" FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 2]]
+  ↳ app/views/garins/index.html.slim:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "budgets"."name" FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/index.html.slim:23
+  Rendered garins/index.html.slim within layouts/application (Duration: 10.5ms | Allocations: 9344)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 14.4ms | ActiveRecord: 1.2ms | Allocations: 14639)
+
+
+Started GET "/" for ::1 at 2020-08-08 22:10:28 +0300
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.5ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:13:in `show'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.5ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 7.6ms | Allocations: 4043)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 14.9ms | ActiveRecord: 1.3ms | Allocations: 9905)
+
+
+Started GET "/budgets" for ::1 at 2020-08-08 22:10:29 +0300
+Processing by BudgetsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/budgets_controller.rb:8:in `index'
+  Rendering budgets/index.html.erb within layouts/application
+  [1m[36mBudget Load (0.3ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/budgets/index.html.erb:17
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 1]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 3]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 4]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 6]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 7]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 8]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 9]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 10]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 11]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 12]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 13]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 14]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 15]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 16]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 17]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 18]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 19]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 20]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 21]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 22]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 23]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 24]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 25]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 26]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 27]]
+  ↳ app/views/budgets/index.html.erb:22
+  Rendered budgets/index.html.erb within layouts/application (Duration: 60.8ms | Allocations: 25066)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 58.4ms | ActiveRecord: 9.1ms | Allocations: 31593)
+
+
+Started GET "/budgets" for ::1 at 2020-08-08 22:10:29 +0300
+Processing by BudgetsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/budgets_controller.rb:8:in `index'
+  Rendering budgets/index.html.erb within layouts/application
+  [1m[36mBudget Load (0.5ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/budgets/index.html.erb:17
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 1]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 3]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 4]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 6]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 7]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 8]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 9]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 10]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 11]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 12]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 13]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 14]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 15]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 16]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 17]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 18]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 19]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 20]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 21]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 22]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 23]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 24]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 25]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 26]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 27]]
+  ↳ app/views/budgets/index.html.erb:22
+  Rendered budgets/index.html.erb within layouts/application (Duration: 47.1ms | Allocations: 23100)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 60ms (Views: 47.8ms | ActiveRecord: 6.4ms | Allocations: 28990)
+
+
+Started GET "/budgets" for ::1 at 2020-08-08 22:11:25 +0300
+Processing by BudgetsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/budgets_controller.rb:8:in `index'
+  Rendering budgets/index.html.erb within layouts/application
+  [1m[36mBudget Load (0.3ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/budgets/index.html.erb:17
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 1]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 3]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 4]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 6]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 7]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 8]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 9]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 10]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 11]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 12]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 13]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 14]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 15]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 16]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 17]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 18]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 19]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 20]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 21]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 22]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 23]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 24]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 25]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 26]]
+  ↳ app/views/budgets/index.html.erb:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "transactions"."description" FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 27]]
+  ↳ app/views/budgets/index.html.erb:22
+  Rendered budgets/index.html.erb within layouts/application (Duration: 60.4ms | Allocations: 28560)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 112ms (Views: 54.2ms | ActiveRecord: 21.9ms | Allocations: 48145)
+
+
+Started GET "/garins" for ::1 at 2020-08-08 22:11:29 +0300
+Processing by GarinsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering garins/index.html.slim within layouts/application
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins"[0m
+  ↳ app/views/garins/index.html.slim:16
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "budgets"."name" FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 2]]
+  ↳ app/views/garins/index.html.slim:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "budgets"."name" FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/index.html.slim:23
+  Rendered garins/index.html.slim within layouts/application (Duration: 6.5ms | Allocations: 2598)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 12.0ms | ActiveRecord: 1.2ms | Allocations: 7985)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:11:33 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.6ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:13:in `show'
+  Rendering garins/show.html.slim within layouts/application
+  Rendered garins/show.html.slim within layouts/application (Duration: 2.6ms | Allocations: 1741)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.9ms | Allocations: 4380)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: p#notice
+    2:   = notice
+    3: h1
+    4: 	= @garin.name
+    5: 	= link_to 'עריכה', edit_garin_path(@garin)
+    6: p
+    7:   strong
+  
+app/views/garins/show.html.slim:4
+Started GET "/garins/2" for ::1 at 2020-08-08 22:12:28 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:13:in `show'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 17.8ms | Allocations: 9321)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 62ms (Views: 20.9ms | ActiveRecord: 10.3ms | Allocations: 27763)
+
+
+Started GET "/garins" for ::1 at 2020-08-08 22:12:33 +0300
+Processing by GarinsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering garins/index.html.slim within layouts/application
+  [1m[36mGarin Load (1.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins"[0m
+  ↳ app/views/garins/index.html.slim:16
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "budgets"."name" FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 2]]
+  ↳ app/views/garins/index.html.slim:23
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "budgets"."name" FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/index.html.slim:23
+  Rendered garins/index.html.slim within layouts/application (Duration: 20.4ms | Allocations: 2587)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 28.1ms | ActiveRecord: 3.8ms | Allocations: 7719)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:12:35 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:13:in `show'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 9.0ms | Allocations: 4036)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 16.6ms | ActiveRecord: 0.9ms | Allocations: 9869)
+
+
+Started GET "/garins/1" for ::1 at 2020-08-08 22:12:39 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:13:in `show'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.2ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 6.2ms | Allocations: 4036)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 10.4ms | ActiveRecord: 0.8ms | Allocations: 9875)
+
+
+Started GET "/" for ::1 at 2020-08-08 22:13:15 +0300
+  
+SyntaxError (/home/pashi/dev/budget/app/controllers/garins_controller.rb:72: syntax error, unexpected '='
+      @garin = = current_user.garin
+               ^
+):
+  
+app/controllers/garins_controller.rb:72: syntax error, unexpected '='
+app/controllers/garins_controller.rb:72: syntax error, unexpected '='
+app/controllers/garins_controller.rb:72: syntax error, unexpected '='
+Started GET "/" for ::1 at 2020-08-08 22:13:23 +0300
+  
+SyntaxError (/home/pashi/dev/budget/app/controllers/garins_controller.rb:72: syntax error, unexpected '='
+      @garin = = current_user.garin
+               ^
+):
+  
+app/controllers/garins_controller.rb:72: syntax error, unexpected '='
+app/controllers/garins_controller.rb:72: syntax error, unexpected '='
+app/controllers/garins_controller.rb:72: syntax error, unexpected '='
+Started GET "/" for ::1 at 2020-08-08 22:13:34 +0300
+  
+SyntaxError (/home/pashi/dev/budget/app/controllers/garins_controller.rb:72: syntax error, unexpected '='
+      @garin = = current_user.garin
+               ^
+):
+  
+app/controllers/garins_controller.rb:72: syntax error, unexpected '='
+app/controllers/garins_controller.rb:72: syntax error, unexpected '='
+app/controllers/garins_controller.rb:72: syntax error, unexpected '='
+Started GET "/" for ::1 at 2020-08-08 22:13:53 +0300
+  
+SyntaxError (/home/pashi/dev/budget/app/controllers/garins_controller.rb:72: syntax error, unexpected '='
+      @garin = = current_user.garin
+               ^
+):
+  
+app/controllers/garins_controller.rb:72: syntax error, unexpected '='
+app/controllers/garins_controller.rb:72: syntax error, unexpected '='
+app/controllers/garins_controller.rb:72: syntax error, unexpected '='
+Started GET "/" for ::1 at 2020-08-08 22:13:58 +0300
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:72:in `set_garin'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 22.8ms | Allocations: 9316)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 62ms (Views: 25.0ms | ActiveRecord: 10.9ms | Allocations: 27686)
+
+
+Started GET "/garins" for ::1 at 2020-08-08 22:14:07 +0300
+Processing by GarinsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering garins/index.html.slim within layouts/application
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins"[0m
+  ↳ app/views/garins/index.html.slim:16
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "budgets"."name" FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 2]]
+  ↳ app/views/garins/index.html.slim:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "budgets"."name" FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/index.html.slim:23
+  Rendered garins/index.html.slim within layouts/application (Duration: 10.3ms | Allocations: 2587)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 17.0ms | ActiveRecord: 1.9ms | Allocations: 7709)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:14:09 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:72:in `set_garin'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.3ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 12.1ms | Allocations: 4036)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 19.8ms | ActiveRecord: 0.8ms | Allocations: 9885)
+
+
+Started GET "/garins/1" for ::1 at 2020-08-08 22:14:14 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (1.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:72:in `set_garin'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.3ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 13.9ms | Allocations: 4036)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 25.7ms | ActiveRecord: 1.7ms | Allocations: 9869)
+
+
+Started GET "/garins" for ::1 at 2020-08-08 22:15:17 +0300
+Processing by GarinsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering garins/index.html.slim within layouts/application
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins"[0m
+  ↳ app/views/garins/index.html.slim:16
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "budgets"."name" FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 2]]
+  ↳ app/views/garins/index.html.slim:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "budgets"."name" FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/index.html.slim:23
+  Rendered garins/index.html.slim within layouts/application (Duration: 17.6ms | Allocations: 7455)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 19.2ms | ActiveRecord: 8.1ms | Allocations: 21406)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:20 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:13:in `show'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.5ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 24.5ms | Allocations: 7630)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 28.4ms | ActiveRecord: 3.4ms | Allocations: 13952)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 35ms (ActiveRecord: 7.2ms | Allocations: 15581)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 3049)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3043)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 3071)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3043)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms | Allocations: 3045)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms | Allocations: 3035)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms | Allocations: 3039)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.8ms | Allocations: 3031)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 3047)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.8ms | Allocations: 3045)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms | Allocations: 3035)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.9ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 8ms (ActiveRecord: 1.3ms | Allocations: 3045)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3045)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms | Allocations: 3037)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3063)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms | Allocations: 3041)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms | Allocations: 3033)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms | Allocations: 3045)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.8ms | Allocations: 3047)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.5ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (4.0ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 15ms (ActiveRecord: 4.8ms | Allocations: 3047)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.7ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 9ms (ActiveRecord: 1.4ms | Allocations: 3047)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.5ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 9ms (ActiveRecord: 1.1ms | Allocations: 3045)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.9ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.7ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 13ms (ActiveRecord: 1.9ms | Allocations: 3037)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 9ms (ActiveRecord: 0.8ms | Allocations: 3037)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.6ms | Allocations: 3041)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 8ms (ActiveRecord: 0.5ms | Allocations: 3059)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (1.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.5ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 10ms (ActiveRecord: 2.1ms | Allocations: 3043)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 10ms (ActiveRecord: 0.9ms | Allocations: 3053)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:42 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.5ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 11ms (ActiveRecord: 1.1ms | Allocations: 3051)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:42 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 8ms (ActiveRecord: 0.6ms | Allocations: 3043)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:42 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 3051)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:42 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3047)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:42 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3041)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:42 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3051)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:42 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3035)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:42 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3047)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:42 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms | Allocations: 3051)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:42 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 9ms (ActiveRecord: 1.0ms | Allocations: 3060)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:42 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.5ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.5ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 9ms (ActiveRecord: 1.2ms | Allocations: 3043)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.5ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 15ms (ActiveRecord: 1.1ms | Allocations: 3042)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms | Allocations: 3041)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.8ms | Allocations: 3037)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.6ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 1.0ms | Allocations: 3039)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3041)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3065)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms | Allocations: 3039)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms | Allocations: 3045)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms | Allocations: 3035)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.6ms | Allocations: 3041)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms | Allocations: 3045)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3043)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3043)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 3055)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 8ms (ActiveRecord: 0.5ms | Allocations: 3049)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms | Allocations: 3061)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms | Allocations: 3043)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms | Allocations: 3055)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.9ms | Allocations: 3039)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:46 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 3051)
+
+
+Started GET "/garins" for ::1 at 2020-08-08 22:15:49 +0300
+Processing by GarinsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering garins/index.html.slim within layouts/application
+  [1m[36mGarin Load (0.8ms)[0m  [1m[34mSELECT "garins".* FROM "garins"[0m
+  ↳ app/views/garins/index.html.slim:16
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "budgets"."name" FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 2]]
+  ↳ app/views/garins/index.html.slim:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "budgets"."name" FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/index.html.slim:23
+  Rendered garins/index.html.slim within layouts/application (Duration: 39.6ms | Allocations: 6218)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 45.4ms | ActiveRecord: 4.0ms | Allocations: 11424)
+
+
+Started GET "/garins/1" for ::1 at 2020-08-08 22:15:50 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.3ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 21.6ms | Allocations: 7746)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 23.8ms | ActiveRecord: 3.5ms | Allocations: 14064)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 10ms (ActiveRecord: 0.9ms | Allocations: 3063)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3067)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 9ms (ActiveRecord: 0.7ms | Allocations: 3061)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.9ms | Allocations: 3071)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.8ms | Allocations: 3065)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 3077)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.6ms | Allocations: 3069)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 3055)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.8ms | Allocations: 3061)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 11ms (ActiveRecord: 0.8ms | Allocations: 3069)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 11ms (ActiveRecord: 0.8ms | Allocations: 3077)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 9ms (ActiveRecord: 0.8ms | Allocations: 3071)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (1.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 12ms (ActiveRecord: 1.9ms | Allocations: 3069)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 10ms (ActiveRecord: 0.6ms | Allocations: 3069)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 10ms (ActiveRecord: 0.5ms | Allocations: 3071)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 15ms (ActiveRecord: 0.6ms | Allocations: 3061)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.6ms | Allocations: 3063)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3055)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms | Allocations: 3061)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms | Allocations: 3075)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3069)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (3.9ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 11ms (ActiveRecord: 4.4ms | Allocations: 3065)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3057)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms | Allocations: 3045)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms | Allocations: 3045)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms | Allocations: 3039)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3047)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3051)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms | Allocations: 3035)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3049)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms | Allocations: 3059)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms | Allocations: 3043)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 8ms (ActiveRecord: 0.7ms | Allocations: 3039)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 9ms (ActiveRecord: 1.1ms | Allocations: 3033)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3051)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms | Allocations: 3051)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3053)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms | Allocations: 3047)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 8ms (ActiveRecord: 0.8ms | Allocations: 3053)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3037)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms | Allocations: 3049)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3049)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:54 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 9ms (ActiveRecord: 0.8ms | Allocations: 3055)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 10ms (ActiveRecord: 1.0ms | Allocations: 3043)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.6ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 11ms (ActiveRecord: 1.0ms | Allocations: 3051)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3055)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3043)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.5ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 10ms (ActiveRecord: 1.3ms | Allocations: 3045)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms | Allocations: 3037)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms | Allocations: 3045)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms | Allocations: 3037)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3042)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3039)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 3047)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 3037)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3035)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms | Allocations: 3037)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 3047)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3047)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 3057)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:15:55 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms | Allocations: 3039)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (1.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 8ms (ActiveRecord: 1.7ms | Allocations: 3047)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms | Allocations: 3045)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms | Allocations: 3051)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.8ms | Allocations: 3041)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 10ms (ActiveRecord: 0.6ms | Allocations: 3033)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms | Allocations: 3053)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms | Allocations: 3045)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 3045)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 3047)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 3047)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.8ms | Allocations: 3037)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3061)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3059)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 8ms (ActiveRecord: 0.7ms | Allocations: 3047)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms | Allocations: 3037)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 3037)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3051)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms | Allocations: 3049)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms | Allocations: 3049)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:00 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/2
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3043)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:23 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/1
+Completed 302 Found in 32ms (ActiveRecord: 6.8ms | Allocations: 15555)
+
+
+Started GET "/garins/1" for ::1 at 2020-08-08 22:16:23 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.2ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 16.5ms | Allocations: 9376)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 19.3ms | ActiveRecord: 3.8ms | Allocations: 15874)
+
+
+Started GET "/garins/1" for ::1 at 2020-08-08 22:16:26 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 8.2ms | Allocations: 4035)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 15.4ms | ActiveRecord: 1.5ms | Allocations: 10441)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:28 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/garins/1
+Completed 302 Found in 9ms (ActiveRecord: 1.0ms | Allocations: 3056)
+
+
+Started GET "/garins/1" for ::1 at 2020-08-08 22:16:29 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.2ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 6.8ms | Allocations: 4035)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 11.2ms | ActiveRecord: 0.8ms | Allocations: 10474)
+
+
+Started GET "/garins/1" for ::1 at 2020-08-08 22:16:41 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.3ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 21.6ms | Allocations: 9311)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 65ms (Views: 24.0ms | ActiveRecord: 13.5ms | Allocations: 28342)
+
+
+Started GET "/garins" for ::1 at 2020-08-08 22:16:43 +0300
+Processing by GarinsController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering garins/index.html.slim within layouts/application
+  [1m[36mGarin Load (1.1ms)[0m  [1m[34mSELECT "garins".* FROM "garins"[0m
+  ↳ app/views/garins/index.html.slim:16
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "budgets"."name" FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 2]]
+  ↳ app/views/garins/index.html.slim:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "budgets"."name" FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/index.html.slim:23
+  Rendered garins/index.html.slim within layouts/application (Duration: 11.0ms | Allocations: 2587)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 17.4ms | ActiveRecord: 3.7ms | Allocations: 7726)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:16:44 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.9ms | Allocations: 3059)
+
+
+Started GET "/" for ::1 at 2020-08-08 22:16:44 +0300
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 2111)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Garin without an ID):
+  
+app/controllers/garins_controller.rb:71:in `set_garin'
+Started GET "/garins" for ::1 at 2020-08-08 22:17:02 +0300
+Processing by GarinsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering garins/index.html.slim within layouts/application
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins"[0m
+  ↳ app/views/garins/index.html.slim:16
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "budgets"."name" FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 2]]
+  ↳ app/views/garins/index.html.slim:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "budgets"."name" FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/index.html.slim:23
+  Rendered garins/index.html.slim within layouts/application (Duration: 5.6ms | Allocations: 2535)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.2ms | ActiveRecord: 1.5ms | Allocations: 7677)
+
+
+Started GET "/garins/1" for ::1 at 2020-08-08 22:17:04 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (1.7ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 8.4ms | Allocations: 4035)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 13.0ms | ActiveRecord: 2.7ms | Allocations: 10459)
+
+
+Started GET "/garins/2" for ::1 at 2020-08-08 22:17:07 +0300
+Processing by GarinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:71:in `set_garin'
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:14:in `show'
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 1.2ms | Allocations: 3032)
+
+
+Started GET "/" for ::1 at 2020-08-08 22:17:07 +0300
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 0.4ms | Allocations: 2097)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Garin without an ID):
+  
+app/controllers/garins_controller.rb:71:in `set_garin'
+Started GET "/" for ::1 at 2020-08-08 22:17:16 +0300
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 26ms (ActiveRecord: 6.3ms | Allocations: 11132)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Garin without an ID):
+  
+app/controllers/garins_controller.rb:71:in `set_garin'
+Started GET "/" for ::1 at 2020-08-08 22:17:20 +0300
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 9ms (ActiveRecord: 0.3ms | Allocations: 2096)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Garin without an ID):
+  
+app/controllers/garins_controller.rb:71:in `set_garin'
+Started GET "/" for ::1 at 2020-08-08 22:18:20 +0300
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:13:in `show'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.2ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 21.3ms | Allocations: 9311)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 60ms (Views: 24.3ms | ActiveRecord: 9.8ms | Allocations: 27598)
+
+
+Started GET "/" for ::1 at 2020-08-08 22:18:22 +0300
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.5ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:13:in `show'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.2ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 6.8ms | Allocations: 4036)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 13.1ms | ActiveRecord: 1.0ms | Allocations: 9892)
+
+
+Started GET "/budgets/1" for ::1 at 2020-08-08 22:18:31 +0300
+Processing by BudgetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBudget Load (0.3ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/budgets_controller.rb:84:in `set_budget'
+  Rendering budgets/show.html.slim within layouts/application
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 1]]
+  ↳ app/views/budgets/show.html.slim:22
+  Rendered budgets/show.html.slim within layouts/application (Duration: 29.6ms | Allocations: 16192)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 52ms (Views: 35.8ms | ActiveRecord: 3.7ms | Allocations: 22270)
+
+
+Started GET "/transactions" for ::1 at 2020-08-08 22:18:42 +0300
+Processing by TransactionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:7:in `index'
+  Rendering transactions/index.html.erb within layouts/application
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/transactions/index.html.erb:18
+  [1m[36mBudget Load (0.3ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/transactions/index.html.erb:23
+  [1m[36mCACHE Budget Load (0.0ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/transactions/index.html.erb:23
+  [1m[36mCACHE Budget Load (0.0ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/transactions/index.html.erb:23
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/transactions/index.html.erb:23
+  [1m[36mCACHE Budget Load (0.0ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/transactions/index.html.erb:23
+  [1m[36mCACHE Budget Load (0.0ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/transactions/index.html.erb:23
+  [1m[36mCACHE Budget Load (0.0ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/transactions/index.html.erb:23
+  Rendered transactions/index.html.erb within layouts/application (Duration: 34.9ms | Allocations: 7948)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 61ms (Views: 46.9ms | ActiveRecord: 1.6ms | Allocations: 14878)
+
+
+Started GET "/transactions/new" for ::1 at 2020-08-08 22:18:50 +0300
+Processing by TransactionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering transactions/new.html.erb within layouts/application
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets"[0m
+  ↳ app/views/transactions/_form.html.slim:5
+  Rendered transactions/_form.html.slim (Duration: 70.0ms | Allocations: 21514)
+  Rendered transactions/new.html.erb within layouts/application (Duration: 71.7ms | Allocations: 21843)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 82ms (Views: 76.1ms | ActiveRecord: 0.7ms | Allocations: 27045)
+
+
+Started POST "/transactions" for ::1 at 2020-08-08 22:19:09 +0300
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"M+ssZ15DEXTHK0gYbj02KYPcCev/S8SRvH3BEWyfjmrnWMcIDxah/UYlsYZDuLR6LibmlW+abpcoUCoiAo3nng==", "transaction"=>{"person"=>"איש", "description"=>"מוצרי טיפוח", "money"=>"200", "budget_id"=>"4"}, "commit"=>"Create Transaction"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transactions_controller.rb:39:in `block in create'
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:39:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/transactions_controller.rb:39:in `block in create'
+  Rendering transactions/new.html.erb within layouts/application
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets"[0m
+  ↳ app/views/transactions/_form.html.slim:5
+  Rendered transactions/_form.html.slim (Duration: 21.3ms | Allocations: 11096)
+  Rendered transactions/new.html.erb within layouts/application (Duration: 21.6ms | Allocations: 11178)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transactions_controller.rb:49:in `create'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:49:in `create'
+  [1m[36mBudget Update (47.2ms)[0m  [1m[33mUPDATE "budgets" SET "money" = $1, "updated_at" = $2 WHERE "budgets"."id" = $3[0m  [["money", 389], ["updated_at", "2020-08-08 19:19:10.014634"], ["id", 4]]
+  ↳ app/controllers/transactions_controller.rb:49:in `create'
+  [1m[35m (39.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/transactions_controller.rb:49:in `create'
+Completed 200 OK in 132ms (Views: 26.3ms | ActiveRecord: 88.5ms | Allocations: 24144)
+
+
+Started POST "/transactions" for ::1 at 2020-08-08 22:19:13 +0300
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"asXREuULrhDb58roGpJ0t98QXA7LfwKz5GWI06IUfhUfhHas+ZLdAwHHACWT5/0IbKN9C1u9LU+e/k9tjDsAhg==", "transaction"=>{"person"=>"איש", "description"=>"מוצרי טיפוח", "money"=>"200", "budget_id"=>"4"}, "commit"=>"Create Transaction"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transactions_controller.rb:39:in `block in create'
+  [1m[36mBudget Load (0.2ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:39:in `block in create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/transactions_controller.rb:39:in `block in create'
+  Rendering transactions/new.html.erb within layouts/application
+  [1m[36mBudget Load (0.3ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets"[0m
+  ↳ app/views/transactions/_form.html.slim:5
+  Rendered transactions/_form.html.slim (Duration: 23.9ms | Allocations: 11091)
+  Rendered transactions/new.html.erb within layouts/application (Duration: 24.2ms | Allocations: 11173)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transactions_controller.rb:49:in `create'
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:49:in `create'
+  [1m[36mBudget Update (0.3ms)[0m  [1m[33mUPDATE "budgets" SET "money" = $1, "updated_at" = $2 WHERE "budgets"."id" = $3[0m  [["money", 189], ["updated_at", "2020-08-08 19:19:13.996646"], ["id", 4]]
+  ↳ app/controllers/transactions_controller.rb:49:in `create'
+  [1m[35m (12.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/transactions_controller.rb:49:in `create'
+Completed 200 OK in 58ms (Views: 28.8ms | ActiveRecord: 14.2ms | Allocations: 23503)
+
+
+Started POST "/transactions" for ::1 at 2020-08-08 22:19:17 +0300
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"oijou+517iKSOm4mCaDAoT3vpI5v13kilIHXRcReB/HXaU8F8uydMUgapOuA1UkejlyFi/8VVt7uGhD76nF5Yg==", "transaction"=>{"person"=>"איש", "description"=>"מוצרי טיפוח", "money"=>"200", "budget_id"=>"4"}, "commit"=>"Create Transaction"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transactions_controller.rb:39:in `block in create'
+  [1m[36mBudget Load (0.6ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:39:in `block in create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/transactions_controller.rb:39:in `block in create'
+  Rendering transactions/new.html.erb within layouts/application
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets"[0m
+  ↳ app/views/transactions/_form.html.slim:5
+  Rendered transactions/_form.html.slim (Duration: 24.5ms | Allocations: 11104)
+  Rendered transactions/new.html.erb within layouts/application (Duration: 24.8ms | Allocations: 11186)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transactions_controller.rb:49:in `create'
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:49:in `create'
+  [1m[36mBudget Update (0.3ms)[0m  [1m[33mUPDATE "budgets" SET "money" = $1, "updated_at" = $2 WHERE "budgets"."id" = $3[0m  [["money", -11], ["updated_at", "2020-08-08 19:19:17.164889"], ["id", 4]]
+  ↳ app/controllers/transactions_controller.rb:49:in `create'
+  [1m[35m (9.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/transactions_controller.rb:49:in `create'
+Completed 200 OK in 75ms (Views: 29.8ms | ActiveRecord: 13.3ms | Allocations: 23519)
+
+
+Started POST "/transactions" for ::1 at 2020-08-08 22:19:18 +0300
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"L0bjeODiVMtR2lDAYxtzqf0EIvsACl9PT+dL6aYwtV9aB0TG/Hsn2Iv6mg3qbvoWTrcD/pDIcLM1fIxXiB/LzA==", "transaction"=>{"person"=>"איש", "description"=>"מוצרי טיפוח", "money"=>"200", "budget_id"=>"4"}, "commit"=>"Create Transaction"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transactions_controller.rb:39:in `block in create'
+  [1m[36mBudget Load (0.5ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:39:in `block in create'
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/transactions_controller.rb:39:in `block in create'
+  Rendering transactions/new.html.erb within layouts/application
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets"[0m
+  ↳ app/views/transactions/_form.html.slim:5
+  Rendered transactions/_form.html.slim (Duration: 47.1ms | Allocations: 11086)
+  Rendered transactions/new.html.erb within layouts/application (Duration: 47.8ms | Allocations: 11168)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transactions_controller.rb:49:in `create'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:49:in `create'
+  [1m[36mBudget Update (0.5ms)[0m  [1m[33mUPDATE "budgets" SET "money" = $1, "updated_at" = $2 WHERE "budgets"."id" = $3[0m  [["money", -211], ["updated_at", "2020-08-08 19:19:18.639062"], ["id", 4]]
+  ↳ app/controllers/transactions_controller.rb:49:in `create'
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/transactions_controller.rb:49:in `create'
+Completed 200 OK in 99ms (Views: 54.5ms | ActiveRecord: 10.4ms | Allocations: 23487)
+
+
+Started GET "/" for ::1 at 2020-08-08 22:19:21 +0300
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:13:in `show'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (1.5ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:23
+  Rendered garins/show.html.slim within layouts/application (Duration: 19.3ms | Allocations: 4046)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 24.3ms | ActiveRecord: 2.1ms | Allocations: 9913)
+
+
