@@ -30249,3 +30249,16 @@ Entrypoint application = js/application-be5e27a62824a5865779.js js/application-b
 Completed 200 OK in 16016ms (Views: 16005.7ms | ActiveRecord: 1.1ms | Allocations: 21766)
 
 
+Started GET "/" for ::1 at 2020-08-09 04:33:18 +0300
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:18:in `initialize'
+  Rendering garins/show.html.slim within layouts/application
+  [1m[36mBudget Load (0.3ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.slim:24
+  Rendered garins/show.html.slim within layouts/application (Duration: 8.1ms | Allocations: 8211)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 58ms (Views: 46.6ms | ActiveRecord: 1.2ms | Allocations: 31060)
+
+
