@@ -1,4 +1,5 @@
 class BudgetsController < ApplicationController
+	load_and_authorize_resource
   before_action :set_budget, only: [:show, :edit, :update, :destroy]
 
   # GET /budgets
@@ -28,28 +29,17 @@ class BudgetsController < ApplicationController
   def create
     @budget = Budget.new(budget_params)
 		@budget.garin = current_user.garin
-		if params[:create_and_add]
-  # Redirect to new form, for example.
 		respond_to do |format|
 			if @budget.save
-				format.html { redirect_to new_budget_path, notice: 'Budget was successfully created.' }
-				# format.json { render :show, status: :created, location: @budget }
+				@budget.garin.new_money
+				if params[:create_and_add]
+					format.html { redirect_to new_budget_path, notice: 'Budget was successfully created.' }
+				else
+					format.html { redirect_to @budget.garin, notice: 'Budget was successfully created.' }
+				end
 			else
 				format.html { render :new }
 				format.json { render json: @budget.errors, status: :unprocessable_entity }
-			end
-		end
-
-		else
-		  # Redirect to show the newly created record, for example.
-			respond_to do |format|
-				if @budget.save
-					format.html { redirect_to @budget, notice: 'Budget was successfully created.' }
-					format.json { render :show, status: :created, location: @budget }
-				else
-					format.html { render :new }
-					format.json { render json: @budget.errors, status: :unprocessable_entity }
-				end
 			end
 		end
   end
@@ -59,7 +49,8 @@ class BudgetsController < ApplicationController
   def update
     respond_to do |format|
       if @budget.update(budget_params)
-        format.html { redirect_to @budget, notice: 'Budget was successfully updated.' }
+				 @budget.garin.new_money
+        format.html { redirect_to @budget.garin, notice: 'Budget was successfully updated.' }
         format.json { render :show, status: :ok, location: @budget }
       else
         format.html { render :edit }
@@ -72,8 +63,9 @@ class BudgetsController < ApplicationController
   # DELETE /budgets/1.json
   def destroy
     @budget.destroy
+		@budget.garin.new_money
     respond_to do |format|
-      format.html { redirect_to budgets_url, notice: 'Budget was successfully destroyed.' }
+      format.html { redirect_to @budget.garin, notice: 'Budget was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

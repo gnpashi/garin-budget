@@ -1,5 +1,6 @@
 class TransactionsController < ApplicationController
-  before_action :set_transaction, only: [:show, :edit, :update, :destroy]
+	skip_before_action :authenticate_user!, only: [:new, :create, :success]
+  before_action :set_transaction, only: [:show, :edit, :update, :destroy, :success]
 
   # GET /transactions
   # GET /transactions.json
@@ -24,6 +25,7 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
+    @garin = Garin.find(params[:garin])
   end
 
   # GET /transactions/1/edit
@@ -33,20 +35,27 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
+		@garin = Garin.find(params[:garin])
     @transaction = Transaction.new(transaction_params)
-		puts "****************************************"
+		@transaction.garin = @garin
     respond_to do |format|
       if @transaction.save
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
-        format.json { render :show, status: :created, location: @transaction }
+				budget = @transaction.budget
+				money = @transaction.money
+				budget.update(money: budget.money - @transaction.money)
+				@garin.new_money
+				if user_signed_in?
+					format.html { redirect_to @transaction.garin, notice: 'Transaction was successfully created.' }
+					format.json { render :show, status: :created, location: @transaction }
+				else
+					format.html { redirect_to success_transaction_path(@transaction), notice: 'Transaction was successfully created.' }
+					format.json { render :show, status: :created, location: @transaction }
+				end
       else
         format.html { render :new }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
       end
     end
-		money = @transaction.money
-		budget = @transaction.budget
-		budget.update(money: budget.money - @transaction.money)
   end
 
   # PATCH/PUT /transactions/1
@@ -73,6 +82,10 @@ class TransactionsController < ApplicationController
     end
   end
 
+	def success
+
+	end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction
@@ -81,6 +94,6 @@ class TransactionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transaction_params
-      params.require(:transaction).permit(:person, :money, :description, :budget_id)
+      params.require(:transaction).permit(:person, :money, :description, :budget_id, :garin_id)
     end
 end

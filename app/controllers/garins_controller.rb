@@ -1,16 +1,20 @@
 class GarinsController < ApplicationController
+ load_and_authorize_resource
   before_action :set_garin, only: [:show, :edit, :update, :destroy]
 
   # GET /garins
   # GET /garins.json
   def index
+		unless current_user.admin?
+			redirect_to root_path
+		end
     @garins = Garin.all
   end
 
   # GET /garins/1
   # GET /garins/1.json
   def show
-		@garin = current_user.garin if user_signed_in? 
+
   end
 
   # GET /garins/new
@@ -26,7 +30,7 @@ class GarinsController < ApplicationController
   # POST /garins.json
   def create
     @garin = Garin.new(garin_params)
-
+		@garin.money = 0
     respond_to do |format|
       if @garin.save
         format.html { redirect_to @garin, notice: 'Garin was successfully created.' }
@@ -65,7 +69,11 @@ class GarinsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_garin
-      @garin = Garin.find(params[:id]) unless user_signed_in? && action_name == "show"
+			if user_signed_in? && current_user.admin?
+				@garin = Garin.find(params[:id])
+			else
+				@garin = current_user.garin
+			end
     end
 
     # Only allow a list of trusted parameters through.

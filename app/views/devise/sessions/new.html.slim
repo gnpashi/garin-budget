@@ -1,0 +1,18 @@
+- content_for :devise_form do
+  h2.heading.text-4xl.font-bold.pt-4.mb-8 התחברות
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .mb-6
+      = f.label "אימייל", class:"label"
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "input"
+    .mb-6
+      = f.label "סיסמה", class:"label"
+      = f.password_field :password, autocomplete: "current-password", class: "input"
+    .mb-6.flex
+      - if devise_mapping.rememberable?
+        = f.check_box :remember_me, class:"mr-2 leading-tight"
+        = f.label "זכור אותי", class:"block text-grey-darker"
+    .md-6
+      = f.submit "התחברות", class: "btn btn-default"
+  hr.border.mt-6/
+  = render "devise/shared/links"
+= render "devise/shared/form_wrap"

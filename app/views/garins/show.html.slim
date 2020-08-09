@@ -3,6 +3,7 @@ p#notice
 h1
 	= @garin.name
 	= link_to 'עריכה', edit_garin_path(@garin)
+	= link_to 'New Transaction', new_transaction_path(garin: @garin)
 p
   strong
     | Money:
@@ -27,6 +28,6 @@ table
         td
           = budget.money
         td
-          = link_to 'Edit', edit_budget_path(budget)
+          = link_to '<i class="material-icons">edit</i>'.html_safe , edit_budget_path(budget)
         td
-          = link_to 'Destroy', budget, method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to '<i class="material-icons">delete</i>'.html_safe, budget, method: :delete, data: { confirm: 'Are you sure?' }

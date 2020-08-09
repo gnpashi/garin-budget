@@ -1,6 +1,7 @@
 = simple_form_for @transaction do |f|
-  = f.input :person
-  = f.input :description
-  = f.input :money
-  = f.association :budget
-  = f.button :submit
+	= f.input :person
+	= f.input :description
+	= f.input :money
+	= f.association :budget, collection: @garin.budgets
+	= hidden_field_tag(:garin, params[:garin])
+	= f.button :submit

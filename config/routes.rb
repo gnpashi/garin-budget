@@ -1,7 +1,11 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  resources :transactions
+  resources :transactions do
+		member do
+			get 'success'
+		end
+  end
   resources :budgets
   resources :garins
     authenticate :user, lambda { |u| u.admin? } do

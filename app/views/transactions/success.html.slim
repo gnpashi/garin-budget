@@ -1,0 +1,7 @@
+- flash.each do |type, message|
+  - if type == "alert"
+    .bg-red-500
+      .container.px-2.mx-auto.py-4.text-white.text-center.font-medium.font-sans= message
+  - if type == "notice"
+    .bg-green-500
+      .container.px-2.mx-auto.py-4.text-white.text-center.font-medium.font-sans= message

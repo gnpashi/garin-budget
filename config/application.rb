@@ -33,6 +33,5 @@ module GarinBudget
     # Don't generate system test files.
     config.generators.system_tests = nil
 		# config.autoloader = :classic
-
   end
 end
