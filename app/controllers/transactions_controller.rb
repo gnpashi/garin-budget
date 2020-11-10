@@ -30,6 +30,8 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/1/edit
   def edit
+		@garin = current_user.garin
+
   end
 
   # POST /transactions
@@ -94,6 +96,6 @@ class TransactionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transaction_params
-      params.require(:transaction).permit(:person, :money, :description, :budget_id, :garin_id)
+      params.require(:transaction).permit(:person, :money, :description, :date, :budget_id, :garin_id)
     end
 end
