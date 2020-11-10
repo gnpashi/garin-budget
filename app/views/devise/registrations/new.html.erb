@@ -2,7 +2,7 @@
 
   <h2 class="heading text-4xl font-bold pt-4 mb-8">Sign up</h2>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="mb-6">
@@ -11,7 +11,7 @@
     </div>
     <div class="mb-6">
       <%= f.label :garin, class:"label" %>
-      <%= f.collection_select :garin, collection: Garin.all ,autofocus: true, class:"input" %>
+      <%= f.association :garin, collection: Garin.all ,autofocus: true, class:"input", label: false %>
     </div>
 
     <div class="mb-6">
