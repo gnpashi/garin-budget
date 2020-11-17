@@ -35994,3 +35994,178 @@ Processing by GarinsController#show as HTML
 Completed 200 OK in 19ms (Views: 11.4ms | ActiveRecord: 2.3ms | Allocations: 10009)
 
 
+Started GET "/" for 127.0.0.1 at 2020-11-17 13:32:00 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:75:in `set_garin'
+  Rendering garins/show.html.erb within layouts/application
+  [1m[36mBudget Load (0.5ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.erb:30
+  Rendered garins/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1258)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 27.1ms | ActiveRecord: 1.2ms | Allocations: 24033)
+
+
+Started GET "/" for 127.0.0.1 at 2020-11-17 13:37:01 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.5ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:75:in `set_garin'
+  Rendering garins/show.html.erb within layouts/application
+  [1m[36mBudget Load (0.8ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.erb:30
+  Rendered garins/show.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1263)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 26.1ms | ActiveRecord: 1.9ms | Allocations: 24071)
+
+
+Started GET "/garins/1/edit" for 127.0.0.1 at 2020-11-17 13:37:12 +0200
+Processing by GarinsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/models/ability.rb:15:in `block in initialize'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:75:in `set_garin'
+  Rendering garins/edit.html.erb within layouts/application
+  Rendered garins/_form.html.slim (Duration: 14.8ms | Allocations: 8829)
+  Rendered garins/edit.html.erb within layouts/application (Duration: 15.5ms | Allocations: 9119)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 21.9ms | ActiveRecord: 1.0ms | Allocations: 17930)
+
+
+Started GET "/garins/1/edit" for 127.0.0.1 at 2020-11-17 13:39:20 +0200
+Processing by GarinsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/models/ability.rb:15:in `block in initialize'
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:75:in `set_garin'
+  Rendering garins/edit.html.erb within layouts/application
+  Rendered garins/_form.html.slim (Duration: 4.0ms | Allocations: 3454)
+  Rendered garins/edit.html.erb within layouts/application (Duration: 5.6ms | Allocations: 3745)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.3ms | Allocations: 9479)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check / = form_with(model: garin, local: true) do |form|
+/   - if garin.errors.any?
+/     #error_explanation
+/       h2
+/         = pluralize(garin.errors.count, "error")
+/         | prohibited this garin from being saved:
+/       ul
+/         - garin.errors.full_messages.each do |message|
+/           li= message
+/   .field
+/     = form.label :name
+/     = form.text_field :name
+/   .field
+/     = form.label :money
+/     = form.number_field :money
+/   .actions
+/     = form.submit
+/
+/ = simple_form_for(@garin) do |f|
+/   = f.simple_fields_for :budgets do |budget|
+/     p
+/       = budget.input :name
+/       br/
+/       = budget.input :money
+/   = f.submit
+
+
+= simple_form_for @garin do |f|
+	= f.input :name, label: "שם"
+	= f.input :start_money, label: "כסף התחלתי"
+	= f.button :submit "שליחה"
+
+):
+1:    / = form_with(model: garin, local: true) do |form|
+2:    /   - if garin.errors.any?
+3:    /     #error_explanation
+4:    /       h2
+5:    /         = pluralize(garin.errors.count, "error")
+6:    /         | prohibited this garin from being saved:
+7:    /       ul
+8:    /         - garin.errors.full_messages.each do |message|
+9:    /           li= message
+10:    /   .field
+11:    /     = form.label :name
+12:    /     = form.text_field :name
+13:    /   .field
+14:    /     = form.label :money
+15:    /     = form.number_field :money
+16:    /   .actions
+17:    /     = form.submit
+18:    /
+19:    / = simple_form_for(@garin) do |f|
+20:    /   = f.simple_fields_for :budgets do |budget|
+21:    /     p
+22:    /       = budget.input :name
+23:    /       br/
+24:    /       = budget.input :money
+25:    /   = f.submit
+26:    
+27:    
+28:    = simple_form_for @garin do |f|
+29:    	= f.input :name, label: "שם"
+30:    	= f.input :start_money, label: "כסף התחלתי"
+31:    	= f.button :submit "שליחה"
+  
+app/views/garins/_form.html.slim:31: syntax error, unexpected string literal, expecting ')'
+app/views/garins/_form.html.slim:31: syntax error, unexpected string literal, expecting ')'
+app/views/garins/_form.html.slim:31: syntax error, unexpected string literal, expecting ')'
+app/views/garins/_form.html.slim:31: syntax error, unexpected string literal, expecting ')'
+app/views/garins/_form.html.slim:31: syntax error, unexpected string literal, expecting ')'
+app/views/garins/_form.html.slim:31: syntax error, unexpected string literal, expecting ')'
+app/views/garins/edit.html.erb:3
+Started GET "/garins/1/edit" for 127.0.0.1 at 2020-11-17 13:39:27 +0200
+Processing by GarinsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.7ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/models/ability.rb:15:in `block in initialize'
+  [1m[36mGarin Load (0.9ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:75:in `set_garin'
+  Rendering garins/edit.html.erb within layouts/application
+  Rendered garins/_form.html.slim (Duration: 14.3ms | Allocations: 8233)
+  Rendered garins/edit.html.erb within layouts/application (Duration: 15.3ms | Allocations: 8522)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 61ms (Views: 33.5ms | ActiveRecord: 3.2ms | Allocations: 33114)
+
+
+Started GET "/" for 127.0.0.1 at 2020-11-17 13:39:31 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:75:in `set_garin'
+  Rendering garins/show.html.erb within layouts/application
+  [1m[36mBudget Load (0.2ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.erb:30
+  Rendered garins/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1264)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 7.8ms | ActiveRecord: 0.8ms | Allocations: 7690)
+
+
+Started GET "/transactions/new?garin=1" for 127.0.0.1 at 2020-11-17 13:39:37 +0200
+Processing by TransactionsController#new as HTML
+  Parameters: {"garin"=>"1"}
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:28:in `new'
+  Rendering transactions/new.html.erb within layouts/application
+  [1m[36mBudget Load (0.2ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/transactions/_form.html.erb:9
+  Rendered transactions/_form.html.erb (Duration: 20.2ms | Allocations: 11520)
+  Rendered transactions/new.html.erb within layouts/application (Duration: 20.8ms | Allocations: 11843)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.slim:32
+Completed 200 OK in 44ms (Views: 27.8ms | ActiveRecord: 3.1ms | Allocations: 23316)
+
+

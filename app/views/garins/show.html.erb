@@ -5,7 +5,7 @@
 </h1>
 <%= link_to 'עריכה', edit_garin_path(@garin) %>
 <br>
-<%= link_to 'New Transaction', new_transaction_path(garin: @garin) %>
+<%= link_to 'רשומה חדשה', new_transaction_path(garin: @garin) %>
 
 <p>
   <strong>
@@ -17,7 +17,7 @@
 <strong>
   קופות
 </strong>
-<%= link_to 'new budget', new_budget_path %>
+<%= link_to 'תקציב חדש', new_budget_path %>
 <table>
   <thead>
     <tr>
@@ -32,10 +32,10 @@
       <td><%= link_to budget.name, budget %></td>
       <td><%= budget.money %></td>
       <td><%= link_to '<i class="material-icons">edit</i>'.html_safe , edit_budget_path(budget) %></td>
-      <td><%= link_to '<i class="material-icons">delete</i>'.html_safe, budget, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to '<i class="material-icons">delete</i>'.html_safe, budget, method: :delete, data: { confirm: 'בטוח\ה?' } %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
 
-<a href="<%= root_url %>users/sign_up?g=<%= @garin.id %>">קישור הצטרפות לגרעין</a>
+<a href="whatsapp://send?text=<%= root_url %>users/sign_up?g=<%= @garin.id %>">קישור הצטרפות לגרעין</a>

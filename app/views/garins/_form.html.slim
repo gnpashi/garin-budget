@@ -26,6 +26,6 @@
 
 
 = simple_form_for @garin do |f|
-	= f.input :name
-	= f.input :start_money
-	= f.button :submit
+	= f.input :name, label: "שם"
+	= f.input :start_money, label: "כסף התחלתי"
+	= f.button :submit, "שליחה"
