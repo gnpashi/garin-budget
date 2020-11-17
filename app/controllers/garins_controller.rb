@@ -31,6 +31,7 @@ class GarinsController < ApplicationController
   def create
     @garin = Garin.new(garin_params)
 		@garin.money = 0
+		@garin.start_money = 0
     respond_to do |format|
       if @garin.save
         format.html { redirect_to @garin, notice: 'Garin was successfully created.' }
@@ -78,6 +79,6 @@ class GarinsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def garin_params
-      params.require(:garin).permit(:name, :money, budgets_ids:[])
+      params.require(:garin).permit(:name, :money, :start_money, :start_day, budgets_ids:[])
     end
 end

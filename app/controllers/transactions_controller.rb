@@ -43,14 +43,15 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       if @transaction.save
 				budget = @transaction.budget
-				money = @transaction.money
-				budget.update(money: budget.money - @transaction.money)
-				@garin.new_money
+				trans_money = @transaction.money
+				budget.update(current_money: budget.current_money - trans_money)
+				@garin.update(money:  @garin.money - trans_money )
+				# @garin.new_money
 				if user_signed_in?
-					format.html { redirect_to @transaction.garin, notice: 'Transaction was successfully created.' }
+					format.html { redirect_to @transaction.garin, notice: 'ההוצאה נרשמה בהצלחה' }
 					format.json { render :show, status: :created, location: @transaction }
 				else
-					format.html { redirect_to success_transaction_path(@transaction), notice: 'Transaction was successfully created.' }
+					format.html { redirect_to success_transaction_path(@transaction), notice: 'ההוצאה נרשמה בהצלחה' }
 					format.json { render :show, status: :created, location: @transaction }
 				end
       else
@@ -65,7 +66,7 @@ class TransactionsController < ApplicationController
   def update
     respond_to do |format|
       if @transaction.update(transaction_params)
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
+        format.html { redirect_to @transaction, notice: 'ההוצאה נרשמה בהצלחה.' }
         format.json { render :show, status: :ok, location: @transaction }
       else
         format.html { render :edit }
@@ -79,7 +80,7 @@ class TransactionsController < ApplicationController
   def destroy
     @transaction.destroy
     respond_to do |format|
-      format.html { redirect_to transactions_url, notice: 'Transaction was successfully destroyed.' }
+      format.html { redirect_to transactions_url, notice: 'ההוצאה נמחקה בהצלחה' }
       format.json { head :no_content }
     end
   end

@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :time_periods
   resources :transactions do
 		member do
 			get 'success'
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
 
 
 		Rails.application.routes.draw do
+  resources :time_periods
 			devise_for :users, controllers: {
 				registrations: 'users/registrations'
 			}
