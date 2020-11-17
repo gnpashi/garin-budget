@@ -32491,3 +32491,332 @@ Processing by GarinsController#show as HTML
 Completed 200 OK in 59ms (Views: 42.1ms | ActiveRecord: 2.9ms | Allocations: 8945)
 
 
+Started GET "/" for 127.0.0.1 at 2020-11-17 10:20:11 +0200
+  [1m[35m (43.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GarinsController#show as HTML
+Completed 401 Unauthorized in 51ms (ActiveRecord: 0.0ms | Allocations: 3063)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-11-17 10:20:12 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.slim within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 5.1ms | Allocations: 650)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 1.4ms | Allocations: 106)
+  Rendered devise/sessions/new.html.slim within layouts/application (Duration: 185.7ms | Allocations: 15239)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 758ms (Views: 661.6ms | ActiveRecord: 67.2ms | Allocations: 47250)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-11-17 10:23:32 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.slim within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 147)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered devise/sessions/new.html.slim within layouts/application (Duration: 14.2ms | Allocations: 1275)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 27.9ms | ActiveRecord: 0.0ms | Allocations: 5682)
+
+
+  [1m[36mUser Load (65.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-11-17 10:29:10 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"tr79PwT6kvT+6dZPq4vYVE2TNIZPIsjLQUJar1vfIzt8NLg4UdOLdEXSlDg8gaB3OXhN92vF971g2o29ROeetw==", "user"=>{"email"=>"guynatan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"התחברות"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "guynatan@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (11.4ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["remember_created_at", "2020-11-17 08:29:11.477559"], ["updated_at", "2020-11-17 08:29:11.478806"], ["id", 1]]
+  [1m[35m (11.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 627ms (ActiveRecord: 25.4ms | Allocations: 10525)
+
+
+Started GET "/" for 127.0.0.1 at 2020-11-17 10:29:11 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (12.8ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:18:in `initialize'
+  Rendering garins/show.html.erb within layouts/application
+  [1m[36mBudget Load (43.1ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.erb:30
+  Rendered garins/show.html.erb within layouts/application (Duration: 115.7ms | Allocations: 7123)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 393ms (Views: 78.8ms | ActiveRecord: 106.9ms | Allocations: 22938)
+
+
+Started GET "/" for 127.0.0.1 at 2020-11-17 10:32:14 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:18:in `initialize'
+  Rendering garins/show.html.erb within layouts/application
+  [1m[36mBudget Load (0.2ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.erb:30
+  Rendered garins/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1135)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 8.4ms | ActiveRecord: 0.8ms | Allocations: 7928)
+
+
+Started GET "/budgets/new" for 127.0.0.1 at 2020-11-17 10:32:22 +0200
+Processing by BudgetsController#new as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:18:in `initialize'
+  Rendering budgets/new.html.erb within layouts/application
+  Rendered budgets/_form.html.erb (Duration: 480.1ms | Allocations: 15098)
+  Rendered budgets/new.html.erb within layouts/application (Duration: 494.0ms | Allocations: 15431)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 518ms (Views: 501.5ms | ActiveRecord: 2.6ms | Allocations: 23139)
+
+
+Started GET "/" for 127.0.0.1 at 2020-11-17 10:32:28 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:18:in `initialize'
+  Rendering garins/show.html.erb within layouts/application
+  [1m[36mBudget Load (1.2ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.erb:30
+  Rendered garins/show.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1147)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 10.6ms | ActiveRecord: 2.0ms | Allocations: 7982)
+
+
+Started GET "/budgets/new" for 127.0.0.1 at 2020-11-17 10:38:26 +0200
+Processing by BudgetsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.6ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:18:in `initialize'
+  Rendering budgets/new.html.erb within layouts/application
+  Rendered budgets/_form.html.erb (Duration: 18.0ms | Allocations: 8776)
+  Rendered budgets/new.html.erb within layouts/application (Duration: 18.4ms | Allocations: 8858)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 23.7ms | ActiveRecord: 1.4ms | Allocations: 15958)
+
+
+Started GET "/" for 127.0.0.1 at 2020-11-17 10:38:35 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:18:in `initialize'
+  Rendering garins/show.html.erb within layouts/application
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.erb:30
+  Rendered garins/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1139)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 19.6ms | ActiveRecord: 1.1ms | Allocations: 7955)
+
+
+Started GET "/garins/1/edit" for 127.0.0.1 at 2020-11-17 10:44:34 +0200
+Processing by GarinsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:18:in `initialize'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/models/ability.rb:16:in `block in initialize'
+  Rendering garins/edit.html.erb within layouts/application
+  Rendered garins/_form.html.slim (Duration: 84.6ms | Allocations: 5833)
+  Rendered garins/edit.html.erb within layouts/application (Duration: 133.4ms | Allocations: 6117)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 157ms (Views: 143.8ms | ActiveRecord: 3.3ms | Allocations: 15661)
+
+
+Started GET "/" for 127.0.0.1 at 2020-11-17 10:44:35 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:18:in `initialize'
+  Rendering garins/show.html.erb within layouts/application
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.erb:30
+  Rendered garins/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1145)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 10.1ms | ActiveRecord: 0.9ms | Allocations: 7945)
+
+
+Started GET "/budgets/new" for 127.0.0.1 at 2020-11-17 10:44:52 +0200
+Processing by BudgetsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:18:in `initialize'
+  Rendering budgets/new.html.erb within layouts/application
+  Rendered budgets/_form.html.erb (Duration: 26.2ms | Allocations: 8790)
+  Rendered budgets/new.html.erb within layouts/application (Duration: 26.6ms | Allocations: 8872)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 37.3ms | ActiveRecord: 0.7ms | Allocations: 15806)
+
+
+Started GET "/" for 127.0.0.1 at 2020-11-17 10:45:32 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:18:in `initialize'
+  Rendering garins/show.html.erb within layouts/application
+  [1m[36mBudget Load (2.5ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.erb:30
+  Rendered garins/show.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1135)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 14.0ms | ActiveRecord: 3.2ms | Allocations: 7930)
+
+
+Started GET "/transactions/new?garin=1" for 127.0.0.1 at 2020-11-17 10:45:33 +0200
+Processing by TransactionsController#new as HTML
+  Parameters: {"garin"=>"1"}
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:28:in `new'
+  Rendering transactions/new.html.erb within layouts/application
+  [1m[36mBudget Load (0.3ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/transactions/_form.html.slim:6
+  Rendered transactions/_form.html.slim (Duration: 60.1ms | Allocations: 17394)
+  Rendered transactions/new.html.erb within layouts/application (Duration: 74.0ms | Allocations: 17719)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.slim:32
+Completed 200 OK in 110ms (Views: 82.8ms | ActiveRecord: 5.2ms | Allocations: 29694)
+
+
+Started GET "/" for 127.0.0.1 at 2020-11-17 10:45:41 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (2.5ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:18:in `initialize'
+  Rendering garins/show.html.erb within layouts/application
+  [1m[36mBudget Load (0.8ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.erb:30
+  Rendered garins/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1146)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 11.6ms | ActiveRecord: 3.6ms | Allocations: 7954)
+
+
+Started GET "/budgets/1" for 127.0.0.1 at 2020-11-17 10:45:43 +0200
+Processing by BudgetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (2.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:18:in `initialize'
+  [1m[36mCACHE Budget Load (0.0ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/budgets_controller.rb:76:in `set_budget'
+  Rendering budgets/show.html.slim within layouts/application
+  [1m[36mTransaction Load (143.6ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."budget_id" = $1[0m  [["budget_id", 1]]
+  ↳ app/views/budgets/show.html.slim:22
+  Rendered budgets/show.html.slim within layouts/application (Duration: 211.4ms | Allocations: 10910)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 234ms (Views: 72.7ms | ActiveRecord: 146.9ms | Allocations: 19505)
+
+
+Started GET "/" for 127.0.0.1 at 2020-11-17 10:45:47 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:18:in `initialize'
+  Rendering garins/show.html.erb within layouts/application
+  [1m[36mBudget Load (1.7ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.erb:30
+  Rendered garins/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1146)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 19.1ms | ActiveRecord: 2.3ms | Allocations: 7952)
+
+
+Started GET "/" for 127.0.0.1 at 2020-11-17 10:49:30 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:18:in `initialize'
+  Rendering garins/show.html.erb within layouts/application
+  [1m[36mBudget Load (0.3ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.erb:30
+  Rendered garins/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1135)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 14.5ms | ActiveRecord: 0.7ms | Allocations: 7927)
+
+
+Started GET "/budgets/new" for 127.0.0.1 at 2020-11-17 10:53:03 +0200
+Processing by BudgetsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:18:in `initialize'
+  Rendering budgets/new.html.erb within layouts/application
+  Rendered budgets/_form.html.erb (Duration: 20.9ms | Allocations: 8789)
+  Rendered budgets/new.html.erb within layouts/application (Duration: 21.3ms | Allocations: 8871)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 26.5ms | ActiveRecord: 0.5ms | Allocations: 15782)
+
+
+Started GET "/" for 127.0.0.1 at 2020-11-17 10:53:14 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/ability.rb:18:in `initialize'
+  Rendering garins/show.html.erb within layouts/application
+  [1m[36mBudget Load (0.2ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.erb:30
+  Rendered garins/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1135)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 8.6ms | ActiveRecord: 0.6ms | Allocations: 7930)
+
+
+Started GET "/transactions/new?garin=1" for 127.0.0.1 at 2020-11-17 10:53:17 +0200
+Processing by TransactionsController#new as HTML
+  Parameters: {"garin"=>"1"}
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:28:in `new'
+  Rendering transactions/new.html.erb within layouts/application
+  [1m[36mBudget Load (0.2ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/transactions/_form.html.slim:6
+  Rendered transactions/_form.html.slim (Duration: 35.5ms | Allocations: 14235)
+  Rendered transactions/new.html.erb within layouts/application (Duration: 35.8ms | Allocations: 14317)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.slim:32
+Completed 200 OK in 51ms (Views: 48.9ms | ActiveRecord: 0.7ms | Allocations: 19939)
+
+
+Started GET "/transactions/new?garin=1" for 127.0.0.1 at 2020-11-17 10:54:15 +0200
+Processing by TransactionsController#new as HTML
+  Parameters: {"garin"=>"1"}
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:28:in `new'
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/_form.html.slim (Duration: 36.2ms | Allocations: 14419)
+  Rendered transactions/new.html.erb within layouts/application (Duration: 37.0ms | Allocations: 14729)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.2ms | Allocations: 16607)
+
+
+  
+ActionView::Template::Error (No input found for date_picker):
+    2: 	= f.input :person
+    3: 	= f.input :description
+    4: 	= f.input :money
+    5: 	= f.input :date, as: :date_picker
+    6: 	= f.association :budget, collection: @garin.budgets
+    7: 	= hidden_field_tag(:garin, params[:garin])
+    8: 	= f.button :submit
+  
+app/views/transactions/_form.html.slim:5
+app/views/transactions/_form.html.slim:1
+app/views/transactions/new.html.erb:3
+Started GET "/transactions/new?garin=1" for 127.0.0.1 at 2020-11-17 10:54:22 +0200
+Processing by TransactionsController#new as HTML
+  Parameters: {"garin"=>"1"}
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:28:in `new'
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/_form.html.slim (Duration: 37.5ms | Allocations: 14544)
+  Rendered transactions/new.html.erb within layouts/application (Duration: 38.1ms | Allocations: 14851)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 0.3ms | Allocations: 16769)
+
+
+  
+ActionView::Template::Error (No input found for datepicker):
+    2: 	= f.input :person
+    3: 	= f.input :description
+    4: 	= f.input :money
+    5: 	= f.input :date, as: :datepicker
+    6: 	= f.association :budget, collection: @garin.budgets
+    7: 	= hidden_field_tag(:garin, params[:garin])
+    8: 	= f.button :submit
+  
+app/views/transactions/_form.html.slim:5
+app/views/transactions/_form.html.slim:1
+app/views/transactions/new.html.erb:3
