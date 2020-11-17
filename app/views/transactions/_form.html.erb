@@ -1,5 +1,5 @@
 <%= simple_form_for @transaction do |f| %>
-	<%= f.input :person %>
+	<%= f.association :user, collection: @garin.users, :label_method => :name, :value_method => :id %>
 	<%= f.input :description %>
 	<%= f.input :money %>
 	<div class="input required ">
