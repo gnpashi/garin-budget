@@ -11,14 +11,10 @@ class Ability
         can :manage, :all
       else
 				if user.present?
-					# can :manage, Garin, user_ids: user.id
 					can :manage, Garin do |garin|
 						garin.user_ids.include?(user.id)
 					end
-					can :manage, Budget, garin_id: user.garin.id
-					# can :manage, Budget do |garin|
-					# 	garin.user_ids.include?(user.id)
-					# end
+					# can :manage, Budget, garin_id: user.garin.id
 				end
       end
     #

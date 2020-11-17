@@ -1,7 +1,5 @@
 class Garin < ApplicationRecord
 	validates :name, presence: true
-	validates :money, presence: true
-	validates :start_money, presence: true
 	has_many :budgets
 	has_many :users
 	has_many :transactions
