@@ -1,11 +1,8 @@
 <%= simple_form_for @transaction do |f| %>
-	<%= f.input :person %>
+	<%= f.association :user, collection: @garin.users, selected: current_user %>
 	<%= f.input :description %>
 	<%= f.input :money %>
-	<div class="input required ">
-		תאריך
-		<%= f.date_field :date %>
-	</div>
+	<%= f.input :date, as: :date, html5: true, input_html: {value: Date.today} %>
 	<%= f.association :budget, collection: @garin.budgets %>
 	<%= hidden_field_tag(:garin, params[:garin]) %>
 	<%= f.button :submit %>

@@ -1,26 +1,22 @@
-
-<h1>
-  <%= @garin.name %>
-</h1>
-<h2>
+<h1 class="text-xl">
   <%= @garin.current_period.heb_month %>
-</h2>
-<%= link_to 'עריכה', edit_garin_path(@garin) %>
+</h1>
+
 <br>
 <%= link_to 'הוצאה חדשה', new_transaction_path(garin: @garin) %>
 
-<p>
+<div class="font-xl block">
   <strong>
     כסף בהתחלת החודש:
   </strong>
   <%= @garin.current_period.money %>
-</p>
-<p>
+</div>
+<div>
   <strong>
     כסף קיים:
   </strong>
   <%= @garin.current_period.current_money %>
-</p>
+</div>
 
 <strong>
   קופות
@@ -41,11 +37,11 @@
       <td><%= budget.current_money %></td>
       <td><%= budget.money %></td>
       <td><%= link_to '<i class="material-icons">edit</i>'.html_safe , edit_budget_path(budget) %></td>
-      <td><%= link_to '<i class="material-icons">delete</i>'.html_safe, budget, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to '<i class="material-icons">delete</i>'.html_safe, budget, method: :delete, data: { confirm: 'בטוח\ה?' } %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
 <%= link_to 'קופה חדשה', new_budget_path %>
 
-<a href="<%= root_url %>users/sign_up?g=<%= @garin.id %>">קישור הצטרפות לגרעין</a>
+<a href="whatsapp://send?text=<%= root_url %>users/sign_up?g=<%= @garin.id %>">קישור הצטרפות לגרעין</a>

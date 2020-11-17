@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
 	belongs_to :garin, optional: true
   accepts_nested_attributes_for :garin
+  has_many :transactions
 end

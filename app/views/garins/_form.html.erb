@@ -1,8 +1,6 @@
-
-
 <%= simple_form_for @garin do |f| %>
-	<%= f.input :name %>
-	<%= f.input :start_money if action_name == "new" %>
-	<%= f.input :start_day, collection: [10, 12, 15] %>
-	<%= f.button :submit %>
+	<%= f.input :name, label: "שם" %>
+	<%= f.input :start_money , label: "כסף התחלתי" if action_name == "new" %>
+	<%= f.input :start_day, collection: [10, 12, 15], label: "יום תחילת מחזור כלכלי" %>
+	<%= f.button :submit, "שליחה" %>
 <% end %>

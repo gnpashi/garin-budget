@@ -6,6 +6,7 @@ class TransactionsController < ApplicationController
   # GET /transactions.json
   def index
     @transactions = current_user.garin.transactions
+		@garin = current_user.garin
   end
 	# def index
 	#   respond_to do |format|
@@ -37,16 +38,17 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
+		puts "****************** create **********************"
 		@garin = Garin.find(params[:garin])
 		@time_period = @garin.current_period
     @transaction = Transaction.new(transaction_params)
 		@transaction.garin = @garin
     respond_to do |format|
-      if @transaction.save
+      if @transaction.save!
 				budget = @transaction.budget
 				trans_money = @transaction.money
 				budget.update(current_money: budget.current_money - trans_money)
-				@time_period.update(money:  @time_period.money - trans_money )
+				@time_period.update(current_money:  @time_period.current_money - trans_money )
 				# @garin.new_money
 				if user_signed_in?
 					format.html { redirect_to @transaction.garin, notice: 'ההוצאה נרשמה בהצלחה' }
@@ -98,6 +100,6 @@ class TransactionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transaction_params
-      params.require(:transaction).permit(:person, :money, :description, :date, :budget_id, :garin_id)
+      params.require(:transaction).permit(:money, :description, :date, :budget_id, :garin_id, :user_id)
     end
 end
