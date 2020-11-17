@@ -4,5 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-	belongs_to :garin
+	belongs_to :garin, optional: true
+  accepts_nested_attributes_for :garin
 end
