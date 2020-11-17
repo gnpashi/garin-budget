@@ -35131,3 +35131,866 @@ Completed 200 OK in 50ms (Views: 34.0ms | ActiveRecord: 2.5ms | Allocations: 128
 
 
   [1m[36mGarin Load (0.5ms)[0m  [1m[34mSELECT "garins".* FROM "garins" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2020-11-17 13:05:19 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:75:in `set_garin'
+  Rendering garins/show.html.erb within layouts/application
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.erb:30
+  Rendered garins/show.html.erb within layouts/application (Duration: 7.6ms | Allocations: 3119)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 13.5ms | ActiveRecord: 1.4ms | Allocations: 22171)
+
+
+Started GET "/" for 127.0.0.1 at 2020-11-17 13:05:24 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.2ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:75:in `set_garin'
+  Rendering garins/show.html.erb within layouts/application
+  [1m[36mBudget Load (0.2ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.erb:30
+  Rendered garins/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 884)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 5.4ms | ActiveRecord: 0.7ms | Allocations: 7130)
+
+
+Started GET "/" for 127.0.0.1 at 2020-11-17 13:11:11 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:75:in `set_garin'
+  Rendering garins/show.html.erb within layouts/application
+  [1m[36mBudget Load (0.4ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.erb:30
+  Rendered garins/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1262)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 27.2ms | ActiveRecord: 1.2ms | Allocations: 24084)
+
+
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:11:18 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1504)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 3933)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% content_for :devise_form do %>
+
+  <h2 class="heading text-4xl font-bold pt-4 mb-8">הרשמה</h2>
+
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <%= if params[:g].present? %>
+      <%= garin_form.text_field :id, class:"hidden", value: params[:g] %>
+    <% else %>
+      <div class="mb-6">
+        <%= f.fields_for :garin_attributes do |garin_form| %>
+          <div class="mb-6">
+            <%= garin_form.label :name, class:"label", label: "שם הגרעין הנוצר" %>
+            <%= garin_form.text_field :name, class:"input" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="mb-6">
+      <%= f.label :name, class:"label", label: "שם" %>
+      <%= f.text_field :name, class:"input" %>
+    </div>
+
+    <div class="mb-6">
+      <%= f.label :email, class:"label", label: "אימייל" %>
+      <%= f.email_field :email, autocomplete: "email", class:"input" %>
+    </div>
+
+    <div class="mb-6">
+      <div class="flex">
+        <%= f.label :password, class: "label", label: "סיסמה" %>
+        <% if @minimum_password_length %>
+        <span class="text-xs pl-1 text-grey-dark"><em>(<%= @minimum_password_length %> תווים לפחות)</em></span>
+        <% end %>
+      </div>
+      <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
+    </div>
+
+    <div class="mb-6">
+      <%= f.label :password_confirmation, class:"label", label: "אימות סיסמה" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
+    </div>
+
+    <div class="mb-6">
+      <%= f.submit "הרשמה", class: "btn btn-default" %>
+    </div>
+
+    <hr class="border mt-6" />
+
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+
+<% end %>
+
+<%= render "devise/shared/form_wrap" %>
+
+):
+1:    <% content_for :devise_form do %>
+2:    
+3:      <h2 class="heading text-4xl font-bold pt-4 mb-8">הרשמה</h2>
+4:    
+5:        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+6:        <%= render "devise/shared/error_messages", resource: resource %>
+7:    
+8:        <%= if params[:g].present? %>
+9:          <%= garin_form.text_field :id, class:"hidden", value: params[:g] %>
+10:        <% else %>
+11:          <div class="mb-6">
+12:            <%= f.fields_for :garin_attributes do |garin_form| %>
+13:              <div class="mb-6">
+14:                <%= garin_form.label :name, class:"label", label: "שם הגרעין הנוצר" %>
+15:                <%= garin_form.text_field :name, class:"input" %>
+16:              </div>
+17:            <% end %>
+18:          </div>
+19:        <% end %>
+20:    
+21:        <div class="mb-6">
+22:          <%= f.label :name, class:"label", label: "שם" %>
+23:          <%= f.text_field :name, class:"input" %>
+24:        </div>
+25:    
+26:        <div class="mb-6">
+27:          <%= f.label :email, class:"label", label: "אימייל" %>
+28:          <%= f.email_field :email, autocomplete: "email", class:"input" %>
+29:        </div>
+30:    
+31:        <div class="mb-6">
+32:          <div class="flex">
+33:            <%= f.label :password, class: "label", label: "סיסמה" %>
+34:            <% if @minimum_password_length %>
+35:            <span class="text-xs pl-1 text-grey-dark"><em>(<%= @minimum_password_length %> תווים לפחות)</em></span>
+36:            <% end %>
+37:          </div>
+38:          <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
+39:        </div>
+40:    
+41:        <div class="mb-6">
+42:          <%= f.label :password_confirmation, class:"label", label: "אימות סיסמה" %>
+43:          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
+44:        </div>
+45:    
+46:        <div class="mb-6">
+47:          <%= f.submit "הרשמה", class: "btn btn-default" %>
+48:        </div>
+49:    
+50:        <hr class="border mt-6" />
+51:    
+52:      <% end %>
+53:    
+54:      <%= render "devise/shared/links" %>
+55:    
+56:    <% end %>
+57:    
+58:    <%= render "devise/shared/form_wrap" %>
+  
+app/views/devise/registrations/new.html.erb:8: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/devise/registrations/new.html.erb:10: syntax error, unexpected `else', expecting ')'
+app/views/devise/registrations/new.html.erb:19: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:8: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/devise/registrations/new.html.erb:10: syntax error, unexpected `else', expecting ')'
+app/views/devise/registrations/new.html.erb:19: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:8: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/devise/registrations/new.html.erb:10: syntax error, unexpected `else', expecting ')'
+app/views/devise/registrations/new.html.erb:19: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:8: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/devise/registrations/new.html.erb:10: syntax error, unexpected `else', expecting ')'
+app/views/devise/registrations/new.html.erb:19: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:8: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/devise/registrations/new.html.erb:10: syntax error, unexpected `else', expecting ')'
+app/views/devise/registrations/new.html.erb:19: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:8: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/devise/registrations/new.html.erb:10: syntax error, unexpected `else', expecting ')'
+app/views/devise/registrations/new.html.erb:19: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/controllers/users/registrations_controller.rb:9:in `new'
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:11:46 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1552)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 4021)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% content_for :devise_form do %>
+
+  <h2 class="heading text-4xl font-bold pt-4 mb-8">הרשמה</h2>
+
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <%= if params[:g] %>
+      <%= garin_form.text_field :id, class:"hidden", value: params[:g] %>
+    <% else %>
+      <div class="mb-6">
+        <%= f.fields_for :garin_attributes do |garin_form| %>
+          <div class="mb-6">
+            <%= garin_form.label :name, class:"label", label: "שם הגרעין הנוצר" %>
+            <%= garin_form.text_field :name, class:"input" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="mb-6">
+      <%= f.label :name, class:"label", label: "שם" %>
+      <%= f.text_field :name, class:"input" %>
+    </div>
+
+    <div class="mb-6">
+      <%= f.label :email, class:"label", label: "אימייל" %>
+      <%= f.email_field :email, autocomplete: "email", class:"input" %>
+    </div>
+
+    <div class="mb-6">
+      <div class="flex">
+        <%= f.label :password, class: "label", label: "סיסמה" %>
+        <% if @minimum_password_length %>
+        <span class="text-xs pl-1 text-grey-dark"><em>(<%= @minimum_password_length %> תווים לפחות)</em></span>
+        <% end %>
+      </div>
+      <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
+    </div>
+
+    <div class="mb-6">
+      <%= f.label :password_confirmation, class:"label", label: "אימות סיסמה" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
+    </div>
+
+    <div class="mb-6">
+      <%= f.submit "הרשמה", class: "btn btn-default" %>
+    </div>
+
+    <hr class="border mt-6" />
+
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+
+<% end %>
+
+<%= render "devise/shared/form_wrap" %>
+
+):
+1:    <% content_for :devise_form do %>
+2:    
+3:      <h2 class="heading text-4xl font-bold pt-4 mb-8">הרשמה</h2>
+4:    
+5:        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+6:        <%= render "devise/shared/error_messages", resource: resource %>
+7:    
+8:        <%= if params[:g] %>
+9:          <%= garin_form.text_field :id, class:"hidden", value: params[:g] %>
+10:        <% else %>
+11:          <div class="mb-6">
+12:            <%= f.fields_for :garin_attributes do |garin_form| %>
+13:              <div class="mb-6">
+14:                <%= garin_form.label :name, class:"label", label: "שם הגרעין הנוצר" %>
+15:                <%= garin_form.text_field :name, class:"input" %>
+16:              </div>
+17:            <% end %>
+18:          </div>
+19:        <% end %>
+20:    
+21:        <div class="mb-6">
+22:          <%= f.label :name, class:"label", label: "שם" %>
+23:          <%= f.text_field :name, class:"input" %>
+24:        </div>
+25:    
+26:        <div class="mb-6">
+27:          <%= f.label :email, class:"label", label: "אימייל" %>
+28:          <%= f.email_field :email, autocomplete: "email", class:"input" %>
+29:        </div>
+30:    
+31:        <div class="mb-6">
+32:          <div class="flex">
+33:            <%= f.label :password, class: "label", label: "סיסמה" %>
+34:            <% if @minimum_password_length %>
+35:            <span class="text-xs pl-1 text-grey-dark"><em>(<%= @minimum_password_length %> תווים לפחות)</em></span>
+36:            <% end %>
+37:          </div>
+38:          <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
+39:        </div>
+40:    
+41:        <div class="mb-6">
+42:          <%= f.label :password_confirmation, class:"label", label: "אימות סיסמה" %>
+43:          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
+44:        </div>
+45:    
+46:        <div class="mb-6">
+47:          <%= f.submit "הרשמה", class: "btn btn-default" %>
+48:        </div>
+49:    
+50:        <hr class="border mt-6" />
+51:    
+52:      <% end %>
+53:    
+54:      <%= render "devise/shared/links" %>
+55:    
+56:    <% end %>
+57:    
+58:    <%= render "devise/shared/form_wrap" %>
+  
+app/views/devise/registrations/new.html.erb:8: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/devise/registrations/new.html.erb:10: syntax error, unexpected `else', expecting ')'
+app/views/devise/registrations/new.html.erb:19: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:8: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/devise/registrations/new.html.erb:10: syntax error, unexpected `else', expecting ')'
+app/views/devise/registrations/new.html.erb:19: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:8: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/devise/registrations/new.html.erb:10: syntax error, unexpected `else', expecting ')'
+app/views/devise/registrations/new.html.erb:19: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:8: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/devise/registrations/new.html.erb:10: syntax error, unexpected `else', expecting ')'
+app/views/devise/registrations/new.html.erb:19: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:8: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/devise/registrations/new.html.erb:10: syntax error, unexpected `else', expecting ')'
+app/views/devise/registrations/new.html.erb:19: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:8: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/devise/registrations/new.html.erb:10: syntax error, unexpected `else', expecting ')'
+app/views/devise/registrations/new.html.erb:19: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:52: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:56: syntax error, unexpected `end', expecting ')'
+app/views/devise/registrations/new.html.erb:61: syntax error, unexpected `end', expecting ')'
+app/controllers/users/registrations_controller.rb:9:in `new'
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:11:56 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 191)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 494.4ms | Allocations: 339954)
+Completed 500 Internal Server Error in 504ms (ActiveRecord: 0.0ms | Allocations: 342422)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `garin_form' for #<#<Class:0x00007f423c0e7ce0>:0x00007f423c0e5a58>
+Did you mean?  garin_url):
+     6:     <%= render "devise/shared/error_messages", resource: resource %>
+     7: 
+     8:     <% if params[:g].present? %>
+     9:       <%= garin_form.text_field :id, class:"hidden", value: params[:g] %>
+    10:     <% else %>
+    11:       <div class="mb-6">
+    12:         <%= f.fields_for :garin_attributes do |garin_form| %>
+  
+app/views/devise/registrations/new.html.erb:9
+app/views/devise/registrations/new.html.erb:5
+app/views/devise/registrations/new.html.erb:1
+app/controllers/users/registrations_controller.rb:9:in `new'
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:12:20 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.7ms | Allocations: 191)
+  Rendered devise/shared/_links.html.erb (Duration: 1.8ms | Allocations: 501)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 0.6ms | Allocations: 100)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 15.6ms | Allocations: 3783)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 39.4ms | ActiveRecord: 0.0ms | Allocations: 25338)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-11-17 13:12:46 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"mQpWV156PWwsUEEh+3wqPLEELqEA6W1Bh06gfXZMlUjrHXUsRfztrK0oUCoVpfoNRZ2b3Kfj5uAuHiuP8Zh8cw==", "user"=>{"garin_attributes"=>{"id"=>"1"}, "name"=>"פשי", "email"=>"p@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"הרשמה"}
+[31mUnpermitted parameter: :id[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "p@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 291)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 88)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2627)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 252ms (Views: 6.5ms | ActiveRecord: 0.8ms | Allocations: 14395)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2020-11-17 13:14:23 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 98)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2554)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 11.4ms | ActiveRecord: 9.2ms | Allocations: 18821)
+
+
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:14:30 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 15)
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 87)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.3ms | Allocations: 1863)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 23.9ms | ActiveRecord: 0.0ms | Allocations: 5891)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-11-17 13:14:39 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"gO6hNwn6hcSnAKO3+5XAfYlsX/ZJ3CdcSPbjrB+UVkby+YJMEnxVBCZ4srwVTBBMffXqi+7WrP3hpmhemEC/fQ==", "user"=>{"garin_attributes"=>{"id"=>"1"}, "name"=>"פשי", "email"=>"p@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"הרשמה"}
+Completed 404 Not Found in 244ms (ActiveRecord: 0.0ms | Allocations: 1106)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Garin with ID=1 for User with ID=):
+  
+activerecord (6.0.3.2) lib/active_record/nested_attributes.rb:594:in `raise_nested_attributes_record_not_found!'
+activerecord (6.0.3.2) lib/active_record/nested_attributes.rb:418:in `assign_nested_attributes_for_one_to_one_association'
+activerecord (6.0.3.2) lib/active_record/nested_attributes.rb:372:in `garin_attributes='
+activemodel (6.0.3.2) lib/active_model/attribute_assignment.rb:50:in `public_send'
+activemodel (6.0.3.2) lib/active_model/attribute_assignment.rb:50:in `_assign_attribute'
+activerecord (6.0.3.2) lib/active_record/attribute_assignment.rb:29:in `block in assign_nested_parameter_attributes'
+activerecord (6.0.3.2) lib/active_record/attribute_assignment.rb:29:in `each'
+activerecord (6.0.3.2) lib/active_record/attribute_assignment.rb:29:in `assign_nested_parameter_attributes'
+activerecord (6.0.3.2) lib/active_record/attribute_assignment.rb:23:in `_assign_attributes'
+activemodel (6.0.3.2) lib/active_model/attribute_assignment.rb:35:in `assign_attributes'
+activerecord (6.0.3.2) lib/active_record/core.rb:325:in `initialize'
+devise (4.7.2) lib/devise/models/database_authenticatable.rb:45:in `initialize'
+activerecord (6.0.3.2) lib/active_record/inheritance.rb:70:in `new'
+activerecord (6.0.3.2) lib/active_record/inheritance.rb:70:in `new'
+devise (4.7.2) lib/devise/models/registerable.rb:22:in `new_with_session'
+devise (4.7.2) app/controllers/devise/registrations_controller.rb:100:in `build_resource'
+devise (4.7.2) app/controllers/devise/registrations_controller.rb:17:in `create'
+actionpack (6.0.3.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:195:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.3.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.2) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.2) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (6.0.3.2) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.2) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.2) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.2) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:19:40 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 191)
+  [1m[36mGarin Load (0.6ms)[0m  [1m[34mSELECT "garins".* FROM "garins"[0m
+  ↳ app/views/devise/registrations/new.html.erb:9
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 491)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 1.5ms | Allocations: 100)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 20.3ms | Allocations: 6701)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 42.1ms | ActiveRecord: 0.6ms | Allocations: 28341)
+
+
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:21:08 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.5ms | Allocations: 191)
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins"[0m
+  ↳ app/views/devise/registrations/new.html.erb:9
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 491)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 0.6ms | Allocations: 100)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 23.9ms | Allocations: 6599)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 46.4ms | ActiveRecord: 0.4ms | Allocations: 28249)
+
+
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:21:19 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.3ms | Allocations: 191)
+  [1m[36mGarin Load (0.5ms)[0m  [1m[34mSELECT "garins".* FROM "garins"[0m
+  ↳ app/views/devise/registrations/new.html.erb:9
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 491)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 0.3ms | Allocations: 100)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 24.8ms | Allocations: 6586)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 48.1ms | ActiveRecord: 0.5ms | Allocations: 28193)
+
+
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:21:21 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 15)
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins"[0m
+  ↳ app/views/devise/registrations/new.html.erb:9
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 88)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 4917)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.4ms | Allocations: 8949)
+
+
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:22:46 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.0ms | Allocations: 191)
+  [1m[36mGarin Load (0.6ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/devise/registrations/new.html.erb:9
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 23.0ms | Allocations: 7716)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.6ms | Allocations: 10297)
+
+
+  
+ActionView::Template::Error (undefined method `to_a' for #<Garin:0x00007f425c00ab40>
+Did you mean?  to_s):
+     6:     <%= render "devise/shared/error_messages", resource: resource %>
+     7: 
+     8:     <% if params[:g].present? %>
+     9:       <%= f.association :garin, collection: Garin.find(params[:g]) %>
+    10:     <% else %>
+    11:       <div class="mb-6">
+    12:         <%= f.fields_for :garin_attributes do |garin_form| %>
+  
+app/views/devise/registrations/new.html.erb:9
+app/views/devise/registrations/new.html.erb:5
+app/views/devise/registrations/new.html.erb:1
+app/controllers/users/registrations_controller.rb:9:in `new'
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:23:26 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 191)
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/devise/registrations/new.html.erb:9
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 17.3ms | Allocations: 7515)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.4ms | Allocations: 10095)
+
+
+  
+ActionView::Template::Error (undefined method `to_a' for #<Garin:0x0000560621d0b0d8>
+Did you mean?  to_s):
+     6:     <%= render "devise/shared/error_messages", resource: resource %>
+     7: 
+     8:     <% if params[:g].present? %>
+     9:       <%= f.association :garin, collection: Garin.find(params[:g]), :label_method => :name, :value_method => :id  %>
+    10:     <% else %>
+    11:       <div class="mb-6">
+    12:         <%= f.fields_for :garin_attributes do |garin_form| %>
+  
+app/views/devise/registrations/new.html.erb:9
+app/views/devise/registrations/new.html.erb:5
+app/views/devise/registrations/new.html.erb:1
+app/controllers/users/registrations_controller.rb:9:in `new'
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:23:35 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 191)
+  [1m[36mGarin Load (7.8ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE (1)[0m
+  ↳ app/views/devise/registrations/new.html.erb:9
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 23.4ms | Allocations: 6028)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 7.8ms | Allocations: 8611)
+
+
+  
+ActionView::Template::Error (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT "garins".* FROM "garins" WHERE (1)
+                                               ^
+):
+     6:     <%= render "devise/shared/error_messages", resource: resource %>
+     7: 
+     8:     <% if params[:g].present? %>
+     9:       <%= f.association :garin, collection: Garin.where(params[:g]), :label_method => :name, :value_method => :id  %>
+    10:     <% else %>
+    11:       <div class="mb-6">
+    12:         <%= f.fields_for :garin_attributes do |garin_form| %>
+  
+app/views/devise/registrations/new.html.erb:9
+app/views/devise/registrations/new.html.erb:5
+app/views/devise/registrations/new.html.erb:1
+app/controllers/users/registrations_controller.rb:9:in `new'
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:23:48 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 191)
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/devise/registrations/new.html.erb:9
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 491)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 0.3ms | Allocations: 100)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 16.8ms | Allocations: 6606)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 36.3ms | ActiveRecord: 0.3ms | Allocations: 28267)
+
+
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:24:02 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 191)
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/devise/registrations/new.html.erb:9
+  Rendered devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 491)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 0.3ms | Allocations: 100)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 22.7ms | Allocations: 6600)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 44.3ms | ActiveRecord: 0.4ms | Allocations: 28242)
+
+
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:25:20 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.1ms | Allocations: 191)
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/devise/registrations/new.html.erb:9
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 491)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 0.3ms | Allocations: 100)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 18.8ms | Allocations: 6569)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 38.6ms | ActiveRecord: 0.4ms | Allocations: 28174)
+
+
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:25:53 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 191)
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/devise/registrations/new.html.erb:9
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 491)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 0.3ms | Allocations: 100)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 14.9ms | Allocations: 6573)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 33.3ms | ActiveRecord: 0.4ms | Allocations: 28171)
+
+
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:26:02 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 15)
+  [1m[36mGarin Load (0.9ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/devise/registrations/new.html.erb:9
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 88)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 20.1ms | Allocations: 4914)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 34.9ms | ActiveRecord: 0.9ms | Allocations: 8944)
+
+
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:26:47 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 191)
+  [1m[36mGarin Load (0.4ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/devise/registrations/new.html.erb:9
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 491)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 0.3ms | Allocations: 100)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 16.7ms | Allocations: 6580)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 37.0ms | ActiveRecord: 0.4ms | Allocations: 28229)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-11-17 13:27:03 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"Z3CU3UVCJ1Ph83oJbWxckJSPc+T3wL7ikA/lZDmZ0KYVZ7emXsT3k2CLawKDtYyhYBbGmVDKNUM5X26Wvk05nQ==", "user"=>{"garin_id"=>"1", "name"=>"pah", "email"=>"sp@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"הרשמה"}
+[31mUnpermitted parameter: :garin_id[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sp@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "sp@gmail.com"], ["encrypted_password", "$2a$12$ktP0ByosO6mW.HWTIfZNKuSoZf/TSzyTemSzl2JYeVFpsPrs1Qn62"], ["name", "pah"], ["created_at", "2020-11-17 11:27:03.482522"], ["updated_at", "2020-11-17 11:27:03.482522"]]
+  [1m[35m (8.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 264ms (ActiveRecord: 9.7ms | Allocations: 8904)
+
+
+Started GET "/" for 127.0.0.1 at 2020-11-17 13:27:03 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering garins/show.html.erb within layouts/application
+  Rendered garins/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1745)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.7ms | Allocations: 4934)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <p id='notice'></p>
+    2:    <%= notice %>
+    3: <h1>
+    4:   <%= @garin.name %>
+    5: </h1>
+    6: <%= link_to 'עריכה', edit_garin_path(@garin) %>
+    7: <br>
+  
+app/views/garins/show.html.erb:4
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 8]]
+  [1m[35m (8.9ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2020-11-17 13:28:51 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+Completed 401 Unauthorized in 7ms (ActiveRecord: 3.0ms | Allocations: 3135)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-11-17 13:28:51 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.slim within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 159)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered devise/sessions/new.html.slim within layouts/application (Duration: 11.8ms | Allocations: 5995)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 17.7ms | ActiveRecord: 0.0ms | Allocations: 16450)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2020-11-17 13:28:53 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 97)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 2555)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 9.3ms | ActiveRecord: 2.6ms | Allocations: 12431)
+
+
+Started GET "/users/sign_up?g=1" for 127.0.0.1 at 2020-11-17 13:29:01 +0200
+Processing by Users::RegistrationsController#new as HTML
+  Parameters: {"g"=>"1"}
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 15)
+  [1m[36mGarin Load (0.5ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/devise/registrations/new.html.erb:9
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 87)
+  Rendered devise/shared/_form_wrap.html.erb (Duration: 0.1ms | Allocations: 9)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 24.3ms | Allocations: 4925)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 30.8ms | ActiveRecord: 0.5ms | Allocations: 8951)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-11-17 13:29:05 +0200
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"g5rsU9sfYnhGRYWHN+6id2mBJrAhYSLxyUStF0DIybnxjc8owJmyuMc9lIzZN3JGnRiTzYZrqVBgFCblxxwggg==", "user"=>{"garin_id"=>"1", "name"=>"pah", "email"=>"sp@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"הרשמה"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sp@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at", "garin_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "sp@gmail.com"], ["encrypted_password", "$2a$12$HHLbobKmlzzx70tRA7D/jugbXjFQwwlaoaHAIPuQKAJwZuVOzuSem"], ["name", "pah"], ["created_at", "2020-11-17 11:29:06.178109"], ["updated_at", "2020-11-17 11:29:06.178109"], ["garin_id", 1]]
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 255ms (ActiveRecord: 9.0ms | Allocations: 7465)
+
+
+Started GET "/" for 127.0.0.1 at 2020-11-17 13:29:06 +0200
+Processing by GarinsController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mGarin Load (0.3ms)[0m  [1m[34mSELECT "garins".* FROM "garins" WHERE "garins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/garins_controller.rb:75:in `set_garin'
+  Rendering garins/show.html.erb within layouts/application
+  [1m[36mBudget Load (0.3ms)[0m  [1m[34mSELECT "budgets".* FROM "budgets" WHERE "budgets"."garin_id" = $1[0m  [["garin_id", 1]]
+  ↳ app/views/garins/show.html.erb:30
+  Rendered garins/show.html.erb within layouts/application (Duration: 7.0ms | Allocations: 3426)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 11.4ms | ActiveRecord: 2.3ms | Allocations: 10009)
+
+
