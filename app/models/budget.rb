@@ -4,5 +4,6 @@ class Budget < ApplicationRecord
 	enum kind: [ :adding, :resetting ]
 	enum is_totaled: [ :no, :yes ]
   belongs_to :garin
+  belongs_to :time_period
 	has_many :transactions, dependent: :destroy
 end

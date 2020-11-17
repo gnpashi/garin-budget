@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @time_period.date %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @time_period.length %>
+</p>
+
+<p>
+  <strong>Garin:</strong>
+  <%= @time_period.garin_id %>
+</p>
+
+<p>
+  <strong>Current money:</strong>
+  <%= @time_period.current_money %>
+</p>
+
+<p>
+  <strong>Money:</strong>
+  <%= @time_period.money %>
+</p>
+
+<%= link_to 'Edit', edit_time_period_path(@time_period) %> |
+<%= link_to 'Back', time_periods_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_093748) do
+ActiveRecord::Schema.define(version: 2020_11_17_111313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,9 @@ ActiveRecord::Schema.define(version: 2020_11_17_093748) do
     t.integer "kind", default: 0
     t.integer "current_money"
     t.integer "is_totaled"
+    t.bigint "time_period_id", null: false
     t.index ["garin_id"], name: "index_budgets_on_garin_id"
+    t.index ["time_period_id"], name: "index_budgets_on_time_period_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -45,6 +47,18 @@ ActiveRecord::Schema.define(version: 2020_11_17_093748) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "new_budgets"
     t.integer "start_money"
+    t.integer "start_day"
+  end
+
+  create_table "time_periods", force: :cascade do |t|
+    t.date "date"
+    t.integer "length"
+    t.bigint "garin_id", null: false
+    t.integer "current_money"
+    t.integer "money"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["garin_id"], name: "index_time_periods_on_garin_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -78,5 +92,7 @@ ActiveRecord::Schema.define(version: 2020_11_17_093748) do
   end
 
   add_foreign_key "budgets", "garins"
+  add_foreign_key "budgets", "time_periods"
+  add_foreign_key "time_periods", "garins"
   add_foreign_key "transactions", "budgets"
 end

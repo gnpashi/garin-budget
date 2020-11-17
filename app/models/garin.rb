@@ -4,6 +4,7 @@ class Garin < ApplicationRecord
 	validates :start_money, presence: true
 	has_many :budgets
 	has_many :users
+	has_many :time_periods
 	has_many :transactions
 	serialize :new_budgets, Array
 
@@ -13,6 +14,11 @@ class Garin < ApplicationRecord
 			new_money += budget.money
 	  end
 		update(money: new_money)
+	end
+
+	def current_period
+		self.time_periods.last
+
 	end
 
 end
