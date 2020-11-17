@@ -14,7 +14,8 @@ class Ability
 					can :manage, Garin do |garin|
 						garin.user_ids.include?(user.id)
 					end
-					# can :manage, Budget, garin_id: user.garin.id
+					can :manage, Budget, garin_id: user.garin.id
+          can :manage, User, garin_id: user.garin.id
 				end
       end
     #

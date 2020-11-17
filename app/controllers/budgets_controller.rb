@@ -7,11 +7,17 @@ class BudgetsController < ApplicationController
   def index
     # @budgets = Budget.all
 		@budgets = current_user.garin.budgets
+
   end
 
   # GET /budgets/1
   # GET /budgets/1.json
   def show
+		if params[:u]
+			@transactions = @budget.transactions.where(user_id: params[:u])
+		else
+			@transactions = @budget.transactions
+		end
   end
 
   # GET /budgets/new

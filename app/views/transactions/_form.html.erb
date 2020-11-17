@@ -1,5 +1,6 @@
+<%= current_user.name %>
 <%= simple_form_for @transaction do |f| %>
-	<%= f.association :user, collection: @garin.users, selected: current_user %>
+	<%= f.association :user, collection: @garin.users, selected: current_user.id %>
 	<%= f.input :description %>
 	<%= f.input :money %>
 	<%= f.input :date, as: :date, html5: true, input_html: {value: Date.today} %>

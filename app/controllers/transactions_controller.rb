@@ -5,7 +5,11 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
-    @transactions = current_user.garin.transactions
+		if params[:u]
+			@transactions = User.find(params[:u]).transactions
+		else
+			@transactions = current_user.garin.transactions
+		end
 		@garin = current_user.garin
   end
 	# def index
@@ -44,7 +48,7 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
 		@transaction.garin = @garin
     respond_to do |format|
-      if @transaction.save!
+      if @transaction.save
 				budget = @transaction.budget
 				trans_money = @transaction.money
 				budget.update(current_money: budget.current_money - trans_money)

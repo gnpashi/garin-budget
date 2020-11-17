@@ -1,27 +1,11 @@
-<h1 class="text-xl">
-  <%= @garin.current_period.heb_month %>
-</h1>
 
-<br>
+
 <%= link_to 'הוצאה חדשה', new_transaction_path(garin: @garin) %>
-
-<div class="font-xl block">
-  <strong>
-    כסף בהתחלת החודש:
-  </strong>
-  <%= @garin.current_period.money %>
-</div>
-<div>
-  <strong>
-    כסף קיים:
-  </strong>
-  <%= @garin.current_period.current_money %>
-</div>
 
 <strong>
   קופות
 </strong>
-<table>
+<table class="min-w-full">
   <thead>
     <tr>
       <th>שם</th>

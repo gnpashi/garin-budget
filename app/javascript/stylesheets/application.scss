@@ -6,3 +6,64 @@
 @import "components/forms";
 
 @tailwind utilities;
+
+
+.h-50vh{
+  min-height: 50vh;
+}
+.min-w-full{
+    min-width: 100%;
+}
+
+.numbers{
+  direction: ltr;
+  display: inline-block;
+}
+main{
+  padding-top: 25vh;
+}
+header{
+  background: linear-gradient(109.41deg, #0D4DAC 0%, #00265F 100%);
+  color: white;
+  min-height: 25vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  a.title:visited{
+    color: white !important;
+  }
+  a.title:hover{
+    background: none !important;
+  }
+}
+
+aside{
+  position: fixed;
+  height: 100vh;
+  width: 0;
+  background: linear-gradient(109.41deg, #0D4DAC 0%, #00265F 100%);
+  left: 0;
+  box-shadow: 0 0 0 0 rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: width 200ms;
+  a{
+    padding: 0 1rem;
+    color: white;
+  }
+}
+aside.open{
+  width: 70vw;
+}
+
+.hamburger{
+  z-index: 10;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  img{
+    height: 1.5rem;
+  }
+}

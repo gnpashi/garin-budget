@@ -3,7 +3,7 @@
 <%= link_to 'הוצאה חדשה', new_transaction_path(garin: @garin) %>
 <br>
 
-
+<%= link_to "כל ההוצאות", transactions_path if params[:u] %>
 <table class="data-tablea" id="transactions-datatable" data-source="<%= transactions_path(format: :json) %>">
   <thead>
     <tr>
@@ -18,7 +18,9 @@
   <tbody>
 		<% @transactions.each do |transaction| %>
 			<tr>
-				<td><%= transaction.person %></td>
+				<td>
+          <%= link_to transaction.user.name, transactions_path(u: transaction.user) %>
+      </td>
 				<td><%= transaction.money %></td>
 				<td><%= transaction.description %></td>
 				<td><%= transaction.date %></td>
