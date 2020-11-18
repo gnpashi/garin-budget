@@ -4,7 +4,7 @@
 	<%= f.input :description %>
 	<%= f.input :money %>
 	<%= f.input :date, as: :date, html5: true, input_html: {value: Date.today} %>
-	<%= f.association :budget, collection: @garin.budgets %>
+	<%= f.association :budget, collection: @garin.current_period.budgets %>
 	<%= hidden_field_tag(:garin, params[:garin]) %>
 	<%= f.button :submit %>
 <% end %>

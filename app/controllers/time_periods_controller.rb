@@ -15,6 +15,7 @@ class TimePeriodsController < ApplicationController
   # GET /time_periods/new
   def new
     @time_period = TimePeriod.new
+    @garin = current_user.garin
   end
 
   # GET /time_periods/1/edit
@@ -25,16 +26,27 @@ class TimePeriodsController < ApplicationController
   # POST /time_periods.json
   def create
     @time_period = TimePeriod.new(time_period_params)
-
-    respond_to do |format|
+    @time_period.garin_id = params[:garin_id]
+    @time_period.current_money = @time_period.money + TimePeriod.last.current_money
+    @time_period.money = @time_period.current_money
       if @time_period.save
-        format.html { redirect_to @time_period, notice: 'Time period was successfully created.' }
-        format.json { render :show, status: :created, location: @time_period }
+        puts "*******************create budegts*********************"
+        TimePeriod.last(2).first.budgets.each do |budget|
+          new_budget = budget.dup
+          new_budget.time_period = @time_period
+          if new_budget.adding?
+            new_budget.money = new_budget.current_money
+          else
+            new_budget.money = new_budget.money
+            new_budget.current_money = new_budget.money
+          end
+          new_budget.save
+        end
+        redirect_to root_path, notice: 'Time period was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @time_period.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
+
   end
 
   # PATCH/PUT /time_periods/1

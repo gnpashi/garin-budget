@@ -1,6 +1,6 @@
 class TimePeriod < ApplicationRecord
   belongs_to :garin
-  has_many :budgets
+  has_many :budgets, dependent: :destroy
 
 
   def heb_month

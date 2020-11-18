@@ -30,12 +30,12 @@ header{
   top: 0;
   width: 100%;
 
-  a.title:visited{
-    color: white !important;
-  }
-  a.title:hover{
-    background: none !important;
-  }
+}
+a.title:visited{
+  color: white !important;
+}
+a.title:hover{
+  background: none !important;
 }
 
 aside{
@@ -44,7 +44,7 @@ aside{
   width: 0;
   background: linear-gradient(109.41deg, #0D4DAC 0%, #00265F 100%);
   left: 0;
-  box-shadow: 0 0 0 0 rgb(0, 0, 0);
+  top: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,6 +56,7 @@ aside{
 }
 aside.open{
   width: 70vw;
+  box-shadow: 50vw -91px 4px 50vw rgba(0,0,0,0.75);
 }
 
 .hamburger{
@@ -66,4 +67,8 @@ aside.open{
   img{
     height: 1.5rem;
   }
+}
+
+.pointer-none{
+  pointer-events: none;
 }

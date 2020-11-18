@@ -1,9 +1,9 @@
 class Garin < ApplicationRecord
 	validates :name, presence: true
-	has_many :budgets
+	has_many :budgets, dependent: :destroy
 	has_many :users
-	has_many :time_periods
-	has_many :transactions
+	has_many :time_periods, dependent: :destroy
+	has_many :transactions, dependent: :destroy
 	serialize :new_budgets, Array
 
 	def new_money
@@ -16,7 +16,6 @@ class Garin < ApplicationRecord
 
 	def current_period
 		self.time_periods.last
-
 	end
 
 end
