@@ -17,13 +17,26 @@
   </thead>
   <tbody>
     <% @garin.current_period.budgets.each do |budget| %>
-    <tr>
+    <%= link_to budget, class:"" do %>
+    <div class="garin-show-budget">
+      <h1>
+        <%= budget.name %>
+      </h1>
+      <span>
+        <%= budget.current_money %>
+      </span>
+      <span>
+        <%= budget.money %>
+      </span>
+    </div>
+    <% end %>
+    <!-- <tr>
       <td><%= link_to budget.name, budget %></td>
       <td><%= budget.current_money %></td>
       <td><%= budget.money %></td>
       <td><%= link_to '<i class="material-icons">edit</i>'.html_safe , edit_budget_path(budget) %></td>
       <td><%= link_to '<i class="material-icons">delete</i>'.html_safe, budget, method: :delete, data: { confirm: 'בטוח\ה?' } %></td>
-    </tr>
+    </tr> -->
     <% end %>
   </tbody>
 </table>
