@@ -1,10 +1,10 @@
 <%= current_user.name %>
 <%= simple_form_for @transaction do |f| %>
-	<%= f.association :user, collection: @garin.users, selected: current_user.id %>
-	<%= f.input :description %>
-	<%= f.input :money %>
-	<%= f.input :date, as: :date, html5: true, input_html: {value: Date.today} %>
-	<%= f.association :budget, collection: @garin.current_period.budgets %>
+	<%= f.association :user, collection: @garin.users, selected: current_user.id, label: "מי הוציא את הכסף?" %>
+	<%= f.input :description, label: "על מה הוצאת כסף הפעם?" %>
+	<%= f.input :money, label: "כמה כסף הוצאת?" %>
+	<%= f.input :date, as: :date, html5: true, input_html: {value: Date.today}, label: "מתי?" %>
+	<%= f.association :budget, collection: @garin.current_period.budgets, label: "מתוך איזו קופה?" %>
 	<%= hidden_field_tag(:garin, params[:garin]) %>
-	<%= f.button :submit %>
+	<%= f.button :submit, "שליחה" %>
 <% end %>
