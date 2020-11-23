@@ -1,45 +1,25 @@
 
 
-<%= link_to 'הוצאה חדשה', new_transaction_path(garin: @garin) %>
-<%= link_to 'התחלת מחזור כלכלי חדש', new_time_period_path %>
-
-<strong>
-  קופות
-</strong>
-<table class="min-w-full">
-  <thead>
-    <tr>
-      <th>שם</th>
-      <th>כסף  קיים</th>
-      <th>כסף בהתחלת החודש</th>
-      <th colspan='3'></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @garin.current_period.budgets.each do |budget| %>
-    <%= link_to budget, class:"" do %>
-    <div class="garin-show-budget">
-      <h1>
-        <%= budget.name %>
-      </h1>
-      <span>
-        <%= budget.current_money %>
-      </span>
-      <span>
-        <%= budget.money %>
-      </span>
-    </div>
+  <div class="garin-budgets">
+    <% @garin.current_period.budgets.sort.each do |budget| %>
+      <%= link_to budget, class:"garin-show-budget" do %>
+      <% if budget.current_money <= 0 %>
+        <div class="red">
+      <% elsif budget.current_money <= budget.money * 0.1 %>
+        <div class="orange">
+      <% else %>
+        <div class="original">
+      <% end %>
+          <h1>
+            <%= budget.name %>
+          </h1>
+          <span>
+            <%= budget.money %>/
+          </span>
+          <span>
+            <%= budget.current_money %>
+          </span>
+        </div>
+      <% end %>
     <% end %>
-    <!-- <tr>
-      <td><%= link_to budget.name, budget %></td>
-      <td><%= budget.current_money %></td>
-      <td><%= budget.money %></td>
-      <td><%= link_to '<i class="material-icons">edit</i>'.html_safe , edit_budget_path(budget) %></td>
-      <td><%= link_to '<i class="material-icons">delete</i>'.html_safe, budget, method: :delete, data: { confirm: 'בטוח\ה?' } %></td>
-    </tr> -->
-    <% end %>
-  </tbody>
-</table>
-<%= link_to 'קופה חדשה', new_budget_path %>
-
-<a href="whatsapp://send?text=<%= root_url %>users/sign_up?g=<%= @garin.id %>">קישור הצטרפות לגרעין</a>
+</div>

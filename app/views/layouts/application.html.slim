@@ -13,10 +13,10 @@ html dir="rtl"
   body.bg-white
     - flash.each do |type, message|
       - if type == "alert"
-        .bg-red-500
+        .bg-red-500.fixed.bottom-0.w-full
           .container.px-2.mx-auto.py-4.text-white.text-center.font-medium.font-sans= message
       - if type == "notice"
-        .bg-green-500
+        .bg-green-500.fixed.bottom-0.w-full
           .container.px-2.mx-auto.py-4.text-white.text-center.font-medium.font-sans= message
     = render partial: "layouts/header"
     = render partial: "layouts/sidebar"

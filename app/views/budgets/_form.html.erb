@@ -1,9 +1,7 @@
 <%= simple_form_for @budget do |f| %>
 	<%= f.input :name %>
 	<%= f.input :kind, collection: [['adding', 'מצטבר'], ['resetting', 'מתאפס']], label_method: :second, value_method: :first  %>
-	<%= f.input :current_money %>
 	<%= f.input :money %>
-	<%= f.input :is_totaled, collection: [['no', 'no'], ['1', 'yes']], label_method: :second, value_method: :first  %>
 	<%=	submit_tag 'סיום', class:"btn" %>
 	<br>
 	<%= submit_tag 'Create and Add Another', name: 'create_and_add', class:"btn" if action_name == "new" %>

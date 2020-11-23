@@ -35,6 +35,8 @@ class BudgetsController < ApplicationController
   def create
     @budget = Budget.new(budget_params)
 		@budget.current_money = @budget.money
+		@budget.garin = current_user.garin
+		@budget.time_period = @budget.garin.current_period
 		respond_to do |format|
 			if @budget.save
 				if params[:create_and_add]
@@ -82,6 +84,6 @@ class BudgetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def budget_params
-      params.require(:budget).permit(:name, :money, :kind, :garin_id, :transactions)
+      params.require(:budget).permit(:name, :money, :kind, :garin_id, :current_money, :transactions)
     end
 end
