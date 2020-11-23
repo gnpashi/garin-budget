@@ -27,7 +27,11 @@ class TimePeriodsController < ApplicationController
   def create
     @time_period = TimePeriod.new(time_period_params)
     @time_period.garin_id = params[:garin_id]
-    @time_period.current_money = @time_period.money + TimePeriod.last.current_money
+    if Garin.find(params[:garin_id]).time_periods.blank?
+      @time_period.current_money = @time_period.money
+    else
+      @time_period.current_money = @time_period.money + TimePeriod.last.current_money
+    end
     @time_period.money = @time_period.current_money
       if @time_period.save
         puts "*******************create budegts*********************"
@@ -42,7 +46,7 @@ class TimePeriodsController < ApplicationController
           end
           new_budget.save
         end
-        redirect_to root_path, notice: 'Time period was successfully created.'
+        redirect_to root_path, notice: 'מחזור כלכלי נוצר בהצלחה'
       else
         render :new
       end
