@@ -40,9 +40,9 @@ class BudgetsController < ApplicationController
 		respond_to do |format|
 			if @budget.save
 				if params[:create_and_add]
-					format.html { redirect_to new_budget_path, notice: 'Budget was successfully created.' }
+					format.html { redirect_to new_budget_path, notice: 'הקופה נוצרה בהצלחה' }
 				else
-					format.html { redirect_to @budget.garin, notice: 'Budget was successfully created.' }
+					format.html { redirect_to @budget.garin, notice: 'הקופה נוצרה בהצלחה' }
 				end
 			else
 				format.html { render :new }
@@ -57,7 +57,7 @@ class BudgetsController < ApplicationController
 		@budget.current_money = @budget.money
     respond_to do |format|
       if @budget.update(budget_params)
-        format.html { redirect_to @budget.garin, notice: 'Budget was successfully updated.' }
+        format.html { redirect_to @budget.garin, notice: 'הקופה עודכנה בהצלחה' }
         format.json { render :show, status: :ok, location: @budget }
       else
         format.html { render :edit }
@@ -71,7 +71,7 @@ class BudgetsController < ApplicationController
   def destroy
     @budget.destroy
     respond_to do |format|
-      format.html { redirect_to @budget.garin, notice: 'Budget was successfully destroyed.' }
+      format.html { redirect_to @budget.garin, notice: 'הקופה נמחקה בהצלחה' }
       format.json { head :no_content }
     end
   end

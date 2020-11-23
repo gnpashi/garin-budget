@@ -1,26 +1,8 @@
 <%= simple_form_for @budget do |f| %>
-	<%= f.input :name %>
-	<%= f.input :kind, collection: [['adding', 'מצטבר'], ['resetting', 'מתאפס']], label_method: :second, value_method: :first  %>
-	<%= f.input :money %>
+	<%= f.input :name, label: "שם הקופה" %>
+	<%= f.input :kind, collection: [['adding', 'מצטבר'], ['resetting', 'מתאפס']], label_method: :second, value_method: :first, label: "סוג קופה"  %>
+	<%= f.input :money , label: "סכום הקופה" %>
 	<%=	submit_tag 'סיום', class:"btn" %>
 	<br>
-	<%= submit_tag 'Create and Add Another', name: 'create_and_add', class:"btn" if action_name == "new" %>
+	<%= submit_tag 'יצירת קופה והמשך ליצירת קופה נוספת', name: 'create_and_add', class:"btn" if action_name == "new" %>
 <% end %>
-<!--
-	/  f.hidden_field :garin_id,  value: current_user.garin.id
-/ = f.button :submit
-	/ .another-budget
-	/ label new budget name
-	/ = text_field_tag "name-1", nil, class:"input more-budget"
-	/ label new budget money
-	/ = text_field_tag "money-1", nil, class:"input"
-/ button#another_budget another budget
-/
-/ javascript:
-/ 	$("#another_budget").click(function(event) {
-/ 		var name = "name-" + (parseInt($(".more-budget").first().attr('name').split("-")[1]) + 1);
-/ 		var money = "money-" + (parseInt($(".more-budget").first().attr('name').split("-")[1]) + 1);
-/ 		$("<div class='another-budget'><label>new budget name</label><input name=" + name + " type='text' class='input more-budget' /><label>new budget money</label><input  name=" + money + " type='number' class='input' /></div>").insertAfter(".another-budget")
-/ 		$(".another-budget").first().removeClass('another-budget')
-/ 		$(".more-budget").first().removeClass('more-budget')
-/ 	}); -->

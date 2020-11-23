@@ -4,13 +4,15 @@
       <div class="text-2xl">
         <%= link_to "תקציב #{current_user.garin.name}", root_path, class:"title" if user_signed_in? %>
       </div>
-      <div class="text-xl">
-        <%= current_user.garin.current_period.heb_month %>
-      </div>
-      <div class="">
-        <span class="text-2xl"><%= current_user.garin.current_period.money %>/</span>
-        <span class="font-bold text-3xl"><%= current_user.garin.current_period.current_money %></span>
-      </div>
+      <% if current_user.garin.time_periods.present? %>
+        <div class="text-xl">
+          <%= current_user.garin.current_period.heb_month %>
+        </div>
+        <div class="">
+          <span class="text-2xl"><%= current_user.garin.current_period.money %>/</span>
+          <span class="font-bold text-3xl"><%= current_user.garin.current_period.current_money %></span>
+        </div>
+      <% end %>
 
       <div class="">
 
