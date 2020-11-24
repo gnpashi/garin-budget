@@ -1,8 +1,9 @@
 doctype html
 html dir="rtl"
   head
-		meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
-		link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /
+		meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
+		link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
+              link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/r-2.2.6/sp-1.2.0/datatables.min.css"
 		title תקציב גרעין
 		= csrf_meta_tags
 		= csp_meta_tag
@@ -53,4 +54,10 @@ javascript:
       $(":not(aside):not(.hamburger):not(html):not(body):not(aside *):not(.hamburger *):not(nav)").toggleClass("pointer-none")
       $("body").toggleClass("overflow-hidden")
 		});
+    var table = $('#table').DataTable( {
+        responsive: true,
+        language: {
+              "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Hebrew.json"
+          }
+      });
 	});
