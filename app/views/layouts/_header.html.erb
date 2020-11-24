@@ -20,8 +20,11 @@
     </div>
   </header>
 <% end %>
-<div class="hamburger block lg:hiddenadsa">
-  <button class="flex items-center" type="button" name="button">
-    <%= image_tag "nav.svg" %>
-  </button>
-</div>
+<nav>
+  <%= link_to "<i class='material-icons text-white text-5xl'>add</i>".html_safe, new_transaction_path(garin: current_user.garin), class: "" %>
+  <div class="hamburger block">
+    <button class="flex items-center" type="button" name="button">
+      <i class='material-icons text-white text-5xl'>menu</i>
+    </button>
+  </div>
+</nav>

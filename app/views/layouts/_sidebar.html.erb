@@ -1,13 +1,11 @@
 <aside class="">
   <%  if user_signed_in? %>
-    <%= link_to 'הוצאה חדשה', new_transaction_path(garin: current_user.garin), class: "block p-5 lg:inline-block text-xl lg:mt-0 lg:mr-4 mb-2 lg:mb-0 " %>
     <%= link_to "גרעינים", garins_path, class: "block p-5 lg:inline-block text-xl lg:mt-0 lg:mr-4 mb-2 lg:mb-0 " if current_user.admin? %>
-    <%= link_to "תקציבים", budgets_path, class: "block p-5 lg:inline-block text-xl lg:mt-0 lg:mr-4 mb-2 lg:mb-0 " %>
     <%= link_to "הוצאות", transactions_path, class: "block p-5 lg:inline-block text-xl lg:mt-0 lg:mr-4 mb-2 lg:mb-0 " %>
     <%= link_to 'התחלת מחזור כלכלי חדש', new_time_period_path, class: "block p-5 lg:inline-block text-xl lg:mt-0 lg:mr-4 mb-2 lg:mb-0 ", data: {confirm: "בטוחים.ות?"} %>
     <%= link_to 'קופה חדשה', new_budget_path, class: "block p-5 lg:inline-block text-xl lg:mt-0 lg:mr-4 mb-2 lg:mb-0 " %>
     <a href="whatsapp://send?text=<%= root_url %>users/sign_up?g=<%= current_user.garin.id %>" class="block p-5 lg:inline-block text-xl lg:mt-0 lg:mr-4 mb-2 lg:mb-0 ">קישור הצטרפות לגרעין</a>
     <%= link_to 'עריכת הגרעין', edit_garin_path(current_user.garin), class: "block p-5 lg:inline-block text-xl lg:mt-0 lg:mr-4 mb-2 lg:mb-0 " if user_signed_in? %>
-    <%= link_to "התנתקות", destroy_user_session_path, method: :delete, class:" block mb-2 p-5 lg:mr-2 lg:mb-0 lg:inline-block text-xl border border-white m-2 rounded"  if user_signed_in? %>
+    <%= link_to "התנתקות", destroy_user_session_path, method: :delete, class:"block p-5 lg:inline-block text-xl lg:mt-0 lg:mr-4 mb-2 lg:mb-0 "  if user_signed_in? %>
   <% end %>
 </aside>

@@ -42,17 +42,14 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
-		puts "****************** create **********************"
-		@garin = Garin.find(params[:garin])
-		@time_period = @garin.current_period
-    @transaction = Transaction.new(transaction_params)
-		@transaction.garin = @garin
+		@transaction = Transaction.new(transaction_params)
+		# @garin = Garin.find(params[:garin])
+		# @time_period = @transaction.budget.time_period
+		@transaction.garin = @transaction.budget.garin
     respond_to do |format|
       if @transaction.save
-				budget = @transaction.budget
-				trans_money = @transaction.money
-				budget.update(current_money: budget.current_money - trans_money)
-				@time_period.update(current_money:  @time_period.current_money - trans_money )
+				@transaction.budget.update(current_money: @transaction.budget.current_money - @transaction.money)
+				@transaction.budget.time_period.update(current_money:  @transaction.budget.time_period.current_money - @transaction.money )
 				# @garin.new_money
 				if user_signed_in?
 					format.html { redirect_to @transaction.garin, notice: 'ההוצאה נרשמה בהצלחה' }
