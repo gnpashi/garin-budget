@@ -14,7 +14,6 @@ class GarinsController < ApplicationController
   # GET /garins/1
   # GET /garins/1.json
   def show
-
   end
 
   # GET /garins/new

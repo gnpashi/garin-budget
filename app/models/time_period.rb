@@ -20,4 +20,8 @@ class TimePeriod < ApplicationRecord
     }
     months[self.date.month]
   end
+
+  def transactions
+    Transaction.where(budget_id: self.budgets.ids)
+  end
 end

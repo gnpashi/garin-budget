@@ -6,22 +6,20 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
-		if params[:u]
-			@transactions = User.find(params[:u]).transactions
+		if params[:budget]
+			@transactions = Budget.find(params[:budget]).transactions
+		elsif params[:time_period]
+			@transactions = TimePeriod.find(params[:time_period]).transactions
 		else
-			@transactions = current_user.garin.transactions
+			@transactions = current_user.garin.current_period.transactions
 		end
 		@garin = current_user.garin
+		respond_to do |format|
+			format.html
+			format.json
+		end
   end
-	# def index
-	#   respond_to do |format|
-	# 		# puts "***************** index ********************"
-	# 		# puts TransactionDatatable.new(params)
-	# 		format.html
-	# 		format.json { render json: TransactionDatatable.new(params) }
-	# 		# puts TransactionDatatable.new(params)
-	#   end
-	# end
+
 
   # GET /transactions/1
   # GET /transactions/1.json
@@ -43,8 +41,6 @@ class TransactionsController < ApplicationController
   # POST /transactions.json
   def create
 		@transaction = Transaction.new(transaction_params)
-		# @garin = Garin.find(params[:garin])
-		# @time_period = @transaction.budget.time_period
 		@transaction.garin = @transaction.budget.garin
     respond_to do |format|
       if @transaction.save

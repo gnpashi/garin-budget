@@ -7,12 +7,21 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require( 'datatables.net-dt' );
-require( 'datatables.net-responsive-dt' );
 
 import $ from 'jquery';
 global.$ = jQuery;
 window.$ = $
+// var $  = require( 'jquery' );
+// var dt = require( 'datatables.net' )( window, $ );
+
+require( 'datatables.net-dt' );
+require( 'datatables.net-buttons-dt' );
+require( 'datatables.net-colreorder-dt' );
+require( 'datatables.net-fixedcolumns-dt' );
+require( 'datatables.net-fixedheader-dt' );
+require( 'datatables.net-responsive-dt' );
+require( 'datatables.net-rowreorder-dt' );
+require( 'datatables.net-scroller-dt' );
 
 // require(‘imports-loader?define=>false!datatables.net’)(window, $)
 // require(‘imports-loader?define=>false!datatables.net-bs4’)(window, $)

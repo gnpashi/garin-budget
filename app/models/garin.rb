@@ -15,7 +15,7 @@ class Garin < ApplicationRecord
 	end
 
 	def current_period
-		self.time_periods.last
+		self.time_periods.order(:id).last
 	end
 
 end

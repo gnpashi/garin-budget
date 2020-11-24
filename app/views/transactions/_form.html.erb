@@ -1,4 +1,4 @@
-<%= current_user.name %>
+
 <%= simple_form_for @transaction do |f| %>
 	<%= f.association :user, collection: @garin.users, selected: current_user.id, label: "מי הוציא את הכסף?" %>
 	<%= f.input :description, label: "על מה הוצאת כסף הפעם?" %>

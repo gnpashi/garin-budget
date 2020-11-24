@@ -54,10 +54,24 @@ javascript:
       $(":not(aside):not(.hamburger):not(html):not(body):not(aside *):not(.hamburger *):not(nav)").toggleClass("pointer-none")
       $("body").toggleClass("overflow-hidden")
 		});
-    var table = $('#table').DataTable( {
-        responsive: true,
-        language: {
-              "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Hebrew.json"
-          }
-      });
+    $('#table').DataTable({
+      responsive: true,
+      processing: true,
+			pageLength: 25,
+      paging: true,
+      fixedHeader: true,
+			ajax: {
+				"url": $('#table').data('source')
+			},
+      language: {
+        "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Hebrew.json"
+      },
+    });
 	});
+
+/ var table = $('#table').DataTable( {
+/ responsive: true,
+/ language: {
+/ "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Hebrew.json"
+/ }
+/ });
