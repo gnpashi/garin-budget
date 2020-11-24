@@ -52,6 +52,7 @@ javascript:
 		$(".hamburger").click(function(event) {
 			$("aside").toggleClass("open")
       $(":not(aside):not(.hamburger):not(html):not(body):not(aside *):not(.hamburger *)").toggleClass("pointer-none")
+      $("body").toggleClass("overflow-hidden")
 		});
     var table = $('#table').DataTable( {
         responsive: true,
