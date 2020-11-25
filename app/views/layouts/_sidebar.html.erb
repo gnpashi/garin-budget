@@ -6,6 +6,7 @@
     <%= link_to 'קופה חדשה', new_budget_path, class: "block p-5 lg:inline-block text-xl lg:mt-0 lg:mr-4 mb-2 lg:mb-0 " %>
     <a href="whatsapp://send?text=<%= root_url %>users/sign_up?g=<%= current_user.garin.id %>" class="block p-5 lg:inline-block text-xl lg:mt-0 lg:mr-4 mb-2 lg:mb-0 ">קישור הצטרפות לגרעין</a>
     <%= link_to 'עריכת הגרעין', edit_garin_path(current_user.garin), class: "block p-5 lg:inline-block text-xl lg:mt-0 lg:mr-4 mb-2 lg:mb-0 " if user_signed_in? %>
+    <%= link_to 'עריכת המשתמש',  edit_user_registration_path , class: "block p-5 lg:inline-block text-xl lg:mt-0 lg:mr-4 mb-2 lg:mb-0 " if user_signed_in? %>
     <%= link_to "התנתקות", destroy_user_session_path, method: :delete, class:"block p-5 lg:inline-block text-xl lg:mt-0 lg:mr-4 mb-2 lg:mb-0 "  if user_signed_in? %>
   <% end %>
 </aside>
