@@ -95,13 +95,30 @@ nav{
 .input, .select{
   border: none;
   background: none;
-  input{
-    border: 1px solid black;
-    border: 1px solid #717171;
+  padding-right: 0;
+  padding-left: 0;
+  label{
+    font-size: 1.3rem;
+  }
+  input, select{
+    border: 2px solid #0c48a2;
     padding: 1rem;
     width: 100%;
     direction: rtl;
     text-align: right;
     border-radius: 10px;
+    font-size: 1.2rem;
   }
+}
+
+input[type=submit]{
+  background: linear-gradient(109.41deg, #0D4DAC 0%, #00265F 100%);
+  width: 100%;
+  margin: 1rem 0;
+  color: white;
+  font-size: 1.3rem;
+  padding: 1rem;
+}
+h1{
+  font-size: 2rem;
 }

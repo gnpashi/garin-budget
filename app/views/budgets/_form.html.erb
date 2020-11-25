@@ -4,5 +4,5 @@
 	<%= f.input :money , label: "סכום הקופה" %>
 	<%=	submit_tag 'סיום', class:"btn" %>
 	<br>
-	<%= submit_tag 'יצירת קופה והמשך ליצירת קופה נוספת', name: 'create_and_add', class:"btn" if action_name == "new" %>
+	<%= submit_tag 'סיום ויצירת קופה נוספת', name: 'create_and_add', class:"btn" if action_name == "new" %>
 <% end %>

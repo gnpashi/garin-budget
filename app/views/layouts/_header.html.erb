@@ -28,7 +28,7 @@
   <% end %>
 <% end %>
 <nav>
-  <%= link_to "<i class='material-icons text-white text-5xl'>add</i>".html_safe, new_transaction_path(garin: current_user.garin) if user_signed_in? %>
+  <%= link_to "<i class='material-icons text-white text-5xl'>add</i>".html_safe, new_transaction_path if user_signed_in? %>
   <div class="hamburger block">
     <button class="flex items-center" type="button" name="button">
       <i class='material-icons text-white text-5xl'>menu</i>

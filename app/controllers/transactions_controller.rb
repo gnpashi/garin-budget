@@ -29,7 +29,7 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
-    @garin = Garin.find(params[:garin])
+    @garin = current_user.garin
   end
 
   # GET /transactions/1/edit
@@ -46,14 +46,8 @@ class TransactionsController < ApplicationController
       if @transaction.save
 				@transaction.budget.update(current_money: @transaction.budget.current_money - @transaction.money)
 				@transaction.budget.time_period.update(current_money:  @transaction.budget.time_period.current_money - @transaction.money )
-				# @garin.new_money
-				if user_signed_in?
-					format.html { redirect_to @transaction.garin, notice: 'ההוצאה נרשמה בהצלחה' }
-					format.json { render :show, status: :created, location: @transaction }
-				else
-					format.html { redirect_to success_transaction_path(@transaction), notice: 'ההוצאה נרשמה בהצלחה' }
-					format.json { render :show, status: :created, location: @transaction }
-				end
+				format.html { redirect_to root_path, notice: 'ההוצאה נרשמה בהצלחה' }
+				format.json { render :show, status: :created, location: @transaction }
       else
         format.html { render :new }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
@@ -95,9 +89,6 @@ class TransactionsController < ApplicationController
     end
   end
 
-	def success
-
-	end
 
   private
     # Use callbacks to share common setup or constraints between actions.
