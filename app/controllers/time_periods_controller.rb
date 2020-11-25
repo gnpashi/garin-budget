@@ -20,6 +20,7 @@ class TimePeriodsController < ApplicationController
 
   # GET /time_periods/1/edit
   def edit
+    @garin = current_user.garin
   end
 
   # POST /time_periods
@@ -34,8 +35,7 @@ class TimePeriodsController < ApplicationController
     end
     @time_period.money = @time_period.current_money
       if @time_period.save
-        puts "*******************create budegts*********************"
-        TimePeriod.last(2).first.budgets.each do |budget|
+        @time_period.garin.time_periods.last(2).first.budgets.each do |budget|
           new_budget = budget.dup
           new_budget.time_period = @time_period
           if new_budget.adding?
@@ -56,9 +56,11 @@ class TimePeriodsController < ApplicationController
   # PATCH/PUT /time_periods/1
   # PATCH/PUT /time_periods/1.json
   def update
+    @time_period.current_money = time_period_params[:money].to_i - (@time_period.money - @time_period.current_money)
     respond_to do |format|
       if @time_period.update(time_period_params)
-        format.html { redirect_to @time_period, notice: 'Time period was successfully updated.' }
+
+        format.html { redirect_to root_path, notice: 'Time period was successfully updated.' }
         format.json { render :show, status: :ok, location: @time_period }
       else
         format.html { render :edit }

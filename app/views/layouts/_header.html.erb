@@ -2,11 +2,11 @@
   <header class="flex justify-between p-3" >
     <div class="content flex flex-col  justify-between">
       <div class="text-2xl">
-        <%= link_to "תקציב #{current_user.garin.name}", root_path, class:"title" if user_signed_in? %>
+        <%= link_to "כלכלת #{current_user.garin.name}", root_path, class:"title" if user_signed_in? %>
       </div>
       <% if current_user.garin.time_periods.present? %>
         <div class="text-xl">
-          <%= current_user.garin.current_period.heb_month %>
+          <%= current_user.garin.current_period.heb_month %>     <%= link_to "<i class='material-icons'>edit</i>".html_safe, edit_time_period_path(current_user.garin.current_period) %>
         </div>
         <div class="">
           <span class="text-2xl"><%= current_user.garin.current_period.money %>/</span>
