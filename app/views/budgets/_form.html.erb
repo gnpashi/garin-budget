@@ -2,6 +2,11 @@
 	<%= f.input :name, label: "שם הקופה" %>
 	<%= f.input :kind, collection: [['adding', 'מצטבר'], ['resetting', 'מתאפס']], label_method: :second, value_method: :first, label: "סוג קופה"  %>
 	<%= f.input :money , label: "סכום הקופה" %>
+	<% if @budget.new_record? %>
+		<%= f.input :is_totaled , label: "האם הקופה נסכמת במחזור?", as: :radio_buttons, collection: [['un_totaled', 'לא נסכמת (כמו נסיעות)'], ['totaled', 'נסכמת']], label_method: :second, value_method: :first, checked: 'totaled' %>
+	<% else %>
+		<%= f.input :is_totaled , label: "האם הקופה נסכמת במחזור?", as: :radio_buttons, collection: [['un_totaled', 'לא נסכמת (כמו נסיעות)'], ['totaled', 'נסכמת']], label_method: :second, value_method: :first %>
+	<% end %>
 	<%=	submit_tag 'סיום', class:"btn" %>
 	<br>
 	<%= submit_tag 'סיום ויצירת קופה נוספת', name: 'create_and_add', class:"btn" if action_name == "new" %>

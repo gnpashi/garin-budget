@@ -17,10 +17,12 @@
               <%= budget.name %>
             </h1>
             <span>
-              <%= budget.money %>/
+              <% if budget.totaled? %>
+                <%= strip_trailing_zero(budget.money) %>/
+              <% end %>
             </span>
             <span>
-              <%= budget.current_money %>
+              <%= strip_trailing_zero(budget.current_money) %>
             </span>
           </div>
         <% end %>

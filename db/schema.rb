@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_22_105903) do
+ActiveRecord::Schema.define(version: 2020_12_22_115024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "budgets", force: :cascade do |t|
     t.string "name"
-    t.integer "money"
+    t.decimal "money"
     t.bigint "garin_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "kind", default: 0
-    t.integer "current_money"
+    t.decimal "current_money"
     t.integer "is_totaled"
     t.bigint "time_period_id", null: false
     t.index ["garin_id"], name: "index_budgets_on_garin_id"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_12_22_105903) do
 
   create_table "garins", force: :cascade do |t|
     t.string "name"
-    t.integer "money"
+    t.decimal "money"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "new_budgets"
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 2020_12_22_105903) do
     t.date "date"
     t.integer "length"
     t.bigint "garin_id", null: false
-    t.integer "current_money"
-    t.integer "money"
+    t.decimal "current_money"
+    t.decimal "money"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["garin_id"], name: "index_time_periods_on_garin_id"

@@ -44,8 +44,12 @@ class TransactionsController < ApplicationController
 		@transaction.garin = @transaction.budget.garin
     respond_to do |format|
       if @transaction.save
-				@transaction.budget.update(current_money: @transaction.budget.current_money - @transaction.money)
-				@transaction.budget.time_period.update(current_money:  @transaction.budget.time_period.current_money - @transaction.money )
+				if @transaction.budget.totaled?
+					@transaction.budget.update(current_money: @transaction.budget.current_money - @transaction.money)
+					@transaction.budget.time_period.update(current_money:  @transaction.budget.time_period.current_money - @transaction.money )
+				else
+					@transaction.budget.update(current_money: @transaction.budget.current_money + @transaction.money)
+				end
 				format.html { redirect_to root_path, notice: 'ההוצאה נרשמה בהצלחה' }
 				format.json { render :show, status: :created, location: @transaction }
       else

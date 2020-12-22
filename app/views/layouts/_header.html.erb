@@ -10,8 +10,8 @@
             <%= current_user.garin.current_period.heb_month %>     <%= link_to "<i class='material-icons'>edit</i>".html_safe, edit_time_period_path(current_user.garin.current_period) %>
           </div>
           <div class="">
-            <span class="text-2xl"><%= current_user.garin.current_period.money %>/</span>
-            <span class="font-bold text-3xl"><%= current_user.garin.current_period.current_money %></span>
+            <span class="text-2xl"><%= strip_trailing_zero(current_user.garin.current_period.money) %>/</span>
+            <span class="font-bold text-3xl"><%= strip_trailing_zero(current_user.garin.current_period.current_money) %></span>
           </div>
         <% end %>
 
