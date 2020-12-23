@@ -1,13 +1,45 @@
-<%= simple_form_for @budget do |f| %>
+<div class="budget-form">
+	<%= simple_form_for @budget do |f| %>
 	<%= f.input :name, label: "שם הקופה" %>
 	<%= f.input :kind, collection: [['adding', 'מצטבר'], ['resetting', 'מתאפס']], label_method: :second, value_method: :first, label: "סוג קופה"  %>
 	<%= f.input :money , label: "סכום הקופה" %>
-	<% if @budget.new_record? %>
-		<%= f.input :is_totaled , label: "האם הקופה נסכמת במחזור?", as: :radio_buttons, collection: [['un_totaled', 'לא נסכמת (כמו נסיעות)'], ['totaled', 'נסכמת']], label_method: :second, value_method: :first, checked: 'totaled' %>
-	<% else %>
-		<%= f.input :is_totaled , label: "האם הקופה נסכמת במחזור?", as: :radio_buttons, collection: [['un_totaled', 'לא נסכמת (כמו נסיעות)'], ['totaled', 'נסכמת']], label_method: :second, value_method: :first %>
-	<% end %>
+	<div class="flex flex-col items-center justify-center">
+		<div class="flex flex-col">
+			<h3 class="text-xl mb-2">האם הקופה נסכמת במחזור?</h3>
+			<% if @budget.new_record? %>
+				<div class="flex">
+					<span class="text-lg mx-1">נסכמת</span>
+					<label class="switch">
+						<input type="checkbox" name="is_totaled">
+						<span class="slider round"></span>
+					</label>
+					<span class="text-lg mx-1">לא נסכמת (כמו נסיעות)</span>
+				</div>
+			<% else %>
+				<% if @budget.totaled? %>
+					<div class="flex">
+						<span class="text-lg mx-1">נסכמת</span>
+						<label class="switch">
+							<input type="checkbox" name="is_totaled" checked>
+							<span class="slider round"></span>
+						</label>
+						<span class="text-lg mx-1">לא נסכמת (כמו נסיעות)</span>
+					</div>
+				<% else %>
+					<div class="flex">
+						<span class="text-lg mx-1">נסכמת</span>
+						<label class="switch">
+							<input type="checkbox" name="is_totaled">
+							<span class="slider round"></span>
+						</label>
+						<span class="text-lg mx-1">לא נסכמת (כמו נסיעות)</span>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
 	<%=	submit_tag 'סיום', class:"btn" %>
 	<br>
 	<%= submit_tag 'סיום ויצירת קופה נוספת', name: 'create_and_add', class:"btn" if action_name == "new" %>
-<% end %>
+	<% end %>
+</div>

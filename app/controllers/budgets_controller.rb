@@ -34,6 +34,11 @@ class BudgetsController < ApplicationController
   # POST /budgets.json
   def create
     @budget = Budget.new(budget_params)
+		if params[:is_totaled] == "on"
+			@budget.is_totaled = "totaled"
+		else
+			@budget.is_totaled = "un_totaled"
+		end
 		@budget.current_money = @budget.money
 		@budget.garin = current_user.garin
 		@budget.time_period = @budget.garin.current_period
@@ -55,6 +60,11 @@ class BudgetsController < ApplicationController
   # PATCH/PUT /budgets/1.json
   def update
 		@budget.current_money = @budget.money
+		if params[:is_totaled] == "on"
+			@budget.is_totaled = "totaled"
+		else
+			@budget.is_totaled = "un_totaled"
+		end
     respond_to do |format|
       if @budget.update(budget_params)
         format.html { redirect_to @budget.garin, notice: 'הקופה עודכנה בהצלחה' }
