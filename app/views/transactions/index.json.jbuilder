@@ -1,7 +1,7 @@
 json.set! :data do
   json.array! @transactions do |transaction|
     json.user "#{transaction.user.name}"
-    json.money "#{transaction.money}"
+    json.money "#{strip_trailing_zero(transaction.money)}"
     json.description "#{transaction.description}"
     json.date "#{transaction.date}"
     json.budget "#{transaction.budget.name}"

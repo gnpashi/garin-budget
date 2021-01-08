@@ -4,10 +4,10 @@
 	</h1>
 	<h2>
 		<span>
-			<%= @budget.money %>/
+			<%= strip_trailing_zero(@budget.money) %>/
 		</span>
 		<span>
-			<%= @budget.current_money %>
+			<%= strip_trailing_zero(@budget.current_money) %>
 		</span>
 	</h2>
 
