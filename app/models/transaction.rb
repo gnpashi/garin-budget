@@ -1,5 +1,4 @@
 class Transaction < ApplicationRecord
-	validates :description, presence: true
 	validates :money, presence: true
 	validates :date, presence: true
   belongs_to :budget
