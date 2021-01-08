@@ -1,6 +1,6 @@
 <div class="budget-show">
 	<h1>
-		<%= @budget.name %>	<%= link_to "<i class='material-icons'>edit</i>".html_safe, edit_budget_path(@budget) %>
+		<%= @budget.name %>	<%= link_to "<i class='material-icons'>edit</i>".html_safe, edit_budget_path(@budget) %> <%= link_to "<i class='material-icons'>delete</i>".html_safe, budget_path(@budget), method: :delete, data: { confirm: "בטוח\ה?" } %>
 	</h1>
 	<h2>
 		<span>
